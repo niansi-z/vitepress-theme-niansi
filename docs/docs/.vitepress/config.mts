@@ -29,15 +29,6 @@ export default defineConfig({
       { text: 'Archives', link: '/archives/', activeMatch: '/archives/' },
       { text: 'About', link: '/about' }
     ],
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
     socialLinks: [
       {
         icon: 'github',
