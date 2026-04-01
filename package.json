@@ -4,6 +4,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "theme:dev": "pnpm --filter vitepress-theme-niansi... run dev",
+    "theme:build": "pnpm --filter vitepress-theme-niansi... run build",
     "format": "prettier --experimental-cli --write .",
     "format:fail": "prettier --experimental-cli --check .",
     "build:docs": "pnpm --filter docs... run docs:build",
