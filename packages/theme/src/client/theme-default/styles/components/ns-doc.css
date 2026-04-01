@@ -1,0 +1,457 @@
+/**
+ * Headings
+ * -------------------------------------------------------------------------- */
+
+.ns-doc h1,
+.ns-doc h2,
+.ns-doc h3,
+.ns-doc h4,
+.ns-doc h5,
+.ns-doc h6 {
+  position: relative;
+  color: var(--ns-heading-color);
+  scroll-margin-top: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ns-doc h1 {
+  margin-top: 3rem;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.ns-doc h2 {
+  font-size: 1.54rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.ns-doc h3 {
+  font-size: 1.36rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ns-doc h4 {
+  font-size: 1.18rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ns-doc .header-anchor {
+  font-weight: 500;
+  color: var(--ns-text-muted-color);
+  user-select: none;
+  opacity: 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ns-link-underline-color);
+  transition:
+    color 0.25s,
+    opacity 0.25s;
+}
+
+.ns-doc .header-anchor:before {
+  content: '#';
+}
+
+.ns-doc h1:hover .header-anchor,
+.ns-doc h1 .header-anchor:focus,
+.ns-doc h2:hover .header-anchor,
+.ns-doc h2 .header-anchor:focus,
+.ns-doc h3:hover .header-anchor,
+.ns-doc h3 .header-anchor:focus,
+.ns-doc h4:hover .header-anchor,
+.ns-doc h4 .header-anchor:focus,
+.ns-doc h5:hover .header-anchor,
+.ns-doc h5 .header-anchor:focus,
+.ns-doc h6:hover .header-anchor,
+.ns-doc h6 .header-anchor:focus {
+  opacity: 1;
+}
+
+/**
+ * Paragraph and inline elements
+ * -------------------------------------------------------------------------- */
+.ns-doc p,
+.ns-doc img,
+.ns-doc summary {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.ns-doc blockquote {
+  border-left: 0.125rem solid var(--ns-blockquote-border-color);
+  padding-left: 1rem;
+  color: var(--ns-blockquote-text-color);
+  margin: 0.5rem 0 1rem;
+}
+
+.ns-doc blockquote > p:last-child {
+  margin-bottom: 0;
+}
+
+.ns-doc a {
+  color: var(--ns-link-color);
+  border-bottom: 1px solid var(--ns-link-underline-color);
+}
+
+.ns-doc a:hover {
+  color: var(--ns-hover-color);
+  border-bottom: 1px solid var(--ns-hover-color);
+  text-decoration: none;
+}
+
+.ns-doc strong {
+  font-weight: bolder;
+}
+
+/**
+ * Lists
+ * -------------------------------------------------------------------------- */
+
+.ns-doc ul,
+.ns-doc ol {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.ns-doc li + li {
+  margin: 0.25rem 0;
+  padding-left: 0.25rem;
+}
+
+.ns-doc li > ol,
+.ns-doc li > ul {
+  margin-top: 0.25rem;
+}
+
+/**
+ * Table
+ * -------------------------------------------------------------------------- */
+
+.ns-doc table {
+  display: block;
+  min-width: 100%;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-spacing: 0;
+  caption-side: bottom;
+  border-collapse: collapse;
+}
+
+.ns-doc tr {
+  background-color: var(--ns-main-bg);
+}
+
+.ns-doc tr:nth-child(2n) {
+  background-color: var(--ns-td-odd-bg);
+}
+
+.ns-doc th,
+.ns-doc td {
+  border: 1px solid var(--ns-divider-color);
+  padding: 0.4rem 1rem;
+}
+
+.ns-doc th {
+  background-color: var(--ns-td-odd-bg);
+}
+
+.ns-doc td {
+  font-size: 95%;
+  white-space: nowrap;
+}
+
+@media (min-width: 850px) {
+  .ns-doc table {
+    min-width: 70%;
+  }
+}
+
+/**
+ * Decorational elements
+ * -------------------------------------------------------------------------- */
+
+.ns-doc hr {
+  margin: 1rem 0;
+  border: none;
+  border-top: 1px solid var(--ns-main-border-color);
+}
+
+/**
+ * Custom Block
+ * -------------------------------------------------------------------------- */
+
+.ns-doc .custom-block {
+  margin: 0 0 1rem;
+}
+
+.ns-doc .custom-block p:last-child {
+  margin-bottom: 0;
+}
+
+.ns-doc .custom-block div[class*='language-'] {
+  margin: 0.5rem 0 !important;
+  border-radius: 10px;
+}
+
+/**
+ * Code
+ * -------------------------------------------------------------------------- */
+
+/* inline code */
+.ns-doc :not(pre, h1, h2, h3, h4, h5, h6) > code {
+  font-size: 0.85rem;
+  color: var(--ns-highlighter-rouge-color);
+  overflow-wrap: break-word;
+}
+
+.ns-doc :not(pre) > code {
+  border-radius: 6px;
+  background-color: var(--ns-line-code-bg);
+  padding: 3px 5px;
+  transition:
+    color 0.25s,
+    background-color 0.5s;
+}
+
+.ns-doc h1 > code,
+.ns-doc h2 > code,
+.ns-doc h3 > code,
+.ns-doc h4 > code {
+  font-size: 85%;
+}
+
+.ns-doc div[class*='language-'] {
+  position: relative;
+  margin: 0.5rem 0;
+  border-radius: 10px;
+  overflow-x: auto;
+  background-color: var(--ns-language-bg);
+  box-shadow: var(--ns-language-border-color) 0 0 0 1px;
+}
+
+@media (min-width: 576px) {
+  .ns-doc div[class*='language-'] {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 8px 0;
+  }
+}
+
+.ns-doc [class*='language-'] pre,
+.ns-doc [class*='language-'] code {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.ns-doc pre {
+  position: relative;
+  font-size: 0.85rem;
+  line-height: 1.4rem;
+  margin: 0;
+}
+
+.ns-doc [class*='language-'] .lang {
+  color: var(--ns-code-lang-color);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-left: 1rem;
+}
+
+.ns-doc [class*='language-'] .lang:before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc(50% - 0.7rem);
+  left: -1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  background-color: var(--ns-code-lang-color);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M8.502 5.387A.75.75 0 0 0 7.5 4.272L5.76 5.836c-.736.663-1.347 1.212-1.766 1.71c-.441.525-.755 1.088-.755 1.784c0 .695.314 1.258.755 1.782c.42.499 1.03 1.049 1.766 1.711l1.74 1.564a.75.75 0 1 0 1.003-1.115l-1.696-1.527c-.788-.709-1.32-1.19-1.663-1.598c-.33-.393-.403-.622-.403-.817c0-.196.072-.425.403-.818c.344-.409.875-.889 1.663-1.598zm6.941 5.111a.75.75 0 0 1 1.06-.055l1.737 1.563c.736.663 1.347 1.213 1.766 1.711c.441.524.755 1.088.755 1.783s-.314 1.259-.755 1.783c-.42.498-1.03 1.048-1.766 1.71l-1.738 1.565a.75.75 0 1 1-1.003-1.116l1.696-1.526c.788-.71 1.32-1.19 1.663-1.599c.33-.392.403-.622.403-.817s-.072-.425-.403-.817c-.344-.41-.875-.89-1.663-1.599L15.5 11.557a.75.75 0 0 1-.056-1.059'/%3E%3Cpath fill='%23000' d='M14.18 4.275a.75.75 0 0 1 .532.918l-3.987 15a.75.75 0 0 1-1.45-.386l3.987-15a.75.75 0 0 1 .918-.532' opacity='0.5'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M8.502 5.387A.75.75 0 0 0 7.5 4.272L5.76 5.836c-.736.663-1.347 1.212-1.766 1.71c-.441.525-.755 1.088-.755 1.784c0 .695.314 1.258.755 1.782c.42.499 1.03 1.049 1.766 1.711l1.74 1.564a.75.75 0 1 0 1.003-1.115l-1.696-1.527c-.788-.709-1.32-1.19-1.663-1.598c-.33-.393-.403-.622-.403-.817c0-.196.072-.425.403-.818c.344-.409.875-.889 1.663-1.598zm6.941 5.111a.75.75 0 0 1 1.06-.055l1.737 1.563c.736.663 1.347 1.213 1.766 1.711c.441.524.755 1.088.755 1.783s-.314 1.259-.755 1.783c-.42.498-1.03 1.048-1.766 1.71l-1.738 1.565a.75.75 0 1 1-1.003-1.116l1.696-1.526c.788-.71 1.32-1.19 1.663-1.599c.33-.392.403-.622.403-.817s-.072-.425-.403-.817c-.344-.41-.875-.89-1.663-1.599L15.5 11.557a.75.75 0 0 1-.056-1.059'/%3E%3Cpath fill='%23000' d='M14.18 4.275a.75.75 0 0 1 .532.918l-3.987 15a.75.75 0 0 1-1.45-.386l3.987-15a.75.75 0 0 1 .918-.532' opacity='0.5'/%3E%3C/svg%3E");
+  -webkit-mask-position: 50%;
+  mask-position: 50%;
+  -webkit-mask-size: 1rem;
+  mask-size: 1rem;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.ns-doc [class*='language-'] code {
+  display: block;
+  padding: 5px 1rem;
+  width: fit-content;
+  min-width: 100%;
+}
+
+.ns-doc [class*='language-'] code .highlighted {
+  display: inline-block;
+  width: calc(100% + 2 * 1rem);
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  background-color: var(--ns-code-line-highlight-color);
+  transition: background-color 0.5s;
+}
+
+.ns-doc div[class*='language-'].line-numbers-mode {
+  /*rtl:ignore*/
+  padding-left: 2rem;
+}
+
+.ns-doc .line-numbers-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  border-right: 1px solid var(--ns-language-border-color);
+  padding-top: calc(2.25rem + 5px);
+  width: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ns-code-lang-color);
+  line-height: 1.4rem;
+}
+
+.ns-doc [class*='language-'] .has-focused-lines .line:not(.has-focus) {
+  filter: blur(0.095rem);
+  opacity: 0.4;
+  transition:
+    filter 0.35s,
+    opacity 0.35s;
+}
+
+.ns-doc [class*='language-'] .has-focused-lines .line:not(.has-focus) {
+  opacity: 0.7;
+  transition:
+    filter 0.35s,
+    opacity 0.35s;
+}
+
+.ns-doc [class*='language-']:hover .has-focused-lines .line:not(.has-focus) {
+  filter: blur(0);
+  opacity: 1;
+}
+
+.ns-doc [class*='language-'] code .diff {
+  transition: background-color 0.5s;
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  width: calc(100% + 2 * 1rem);
+  display: inline-block;
+}
+
+.ns-doc [class*='language-'] code .diff::before {
+  position: absolute;
+  left: 0.25rem;
+}
+
+.ns-doc [class*='language-'] code .diff.remove {
+  background-color: var(--ns-code-line-diff-remove-color);
+  opacity: 0.7;
+}
+
+.ns-doc [class*='language-'] code .diff.remove::before {
+  content: '-';
+  color: var(--ns-code-line-diff-remove-symbol-color);
+}
+
+.ns-doc [class*='language-'] code .diff.add {
+  background-color: var(--ns-code-line-diff-add-color);
+}
+
+.ns-doc [class*='language-'] code .diff.add::before {
+  content: '+';
+  color: var(--ns-code-line-diff-add-symbol-color);
+}
+
+.ns-doc [class*='language-'] code .highlighted.error {
+  background-color: var(--ns-code-line-error-color);
+}
+
+.ns-doc [class*='language-'] code .highlighted.warning {
+  background-color: var(--ns-code-line-warning-color);
+}
+
+.ns-doc [class*='language-'] > button.copy {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 3;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 6px;
+  background-image: var(--ns-icon-copy);
+  background-size: 20px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.ns-doc [class*='language-'] > button.copy:hover {
+  background-color: rgba(128, 128, 128, 0.37);
+}
+
+.ns-doc [class*='language-'] > button.copy.copied:before {
+  content: 'Copied';
+  position: absolute;
+  top: 8px;
+  right: 3.75rem;
+  transform: translateX(50%);
+  font-size: 0.75rem;
+  color: var(--ns-text-muted-color);
+}
+
+@media (min-width: 576px) {
+  .ns-doc [class*='language-']:before {
+    content: '';
+    display: inline-block;
+    margin-left: 1rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: var(--ns-code-header-muted-color-left);
+    box-shadow:
+      1.25rem 0 0 var(--ns-code-header-muted-color-medium),
+      2.5rem 0 0 var(--ns-code-header-muted-color-right);
+  }
+
+  .ns-doc [class*='language-'] .lang {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/**
+ * External links
+ * -------------------------------------------------------------------------- */
+
+/* prettier-ignore */
+:is(.ns-external-link-icon, .ns-doc a[href*='://'], .ns-doc a[target='_blank']):not(:is(.no-icon, svg a, :has(img, svg)))::after {
+  display: inline-block;
+  margin-top: -1px;
+  margin-left: 0.25rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: currentColor;
+  color: var(--ns-link-color);
+  flex-shrink: 0;
+  --icon: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E%3Cpath d='M0 0h24v24H0V0z' fill='none' /%3E%3Cpath d='M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5H9z' /%3E%3C/svg%3E");
+  -webkit-mask-image: var(--icon);
+  mask-image: var(--icon);
+  /*rtl:raw:transform: scaleX(-1);*/
+}
+
+.ns-external-link-icon::after {
+  content: '';
+}
+
+/* prettier-ignore */
+.external-link-icon-enabled :is(.ns-doc a[href*='://'], .ns-doc a[target='_blank']):not(:is(.no-icon, svg a, :has(img, svg)))::after {
+  content: '';
+  color: currentColor;
+}

@@ -1,0 +1,46 @@
+{
+  "name": "vitepress-theme-niansi-root",
+  "description": "A VitePress theme with tons of features",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --experimental-cli --write .",
+    "format:fail": "prettier --experimental-cli --check .",
+    "build:docs": "pnpm --filter docs... run docs:build",
+    "vercel-build": "pnpm --filter vitepress-theme-niansi... run build && pnpm run build:docs",
+    "netlify-build": "pnpm --filter vitepress-theme-niansi... run build && pnpm run build:docs"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "catalog:build",
+    "@rollup/plugin-commonjs": "catalog:build",
+    "@rollup/plugin-json": "catalog:build",
+    "@rollup/plugin-node-resolve": "catalog:build",
+    "@rollup/plugin-replace": "catalog:build",
+    "@types/fs-extra": "catalog:types",
+    "@types/node": "catalog:types",
+    "chokidar": "catalog:script",
+    "conventional-changelog": "catalog:script",
+    "conventional-changelog-angular": "catalog:script",
+    "fs-extra": "catalog:script",
+    "lint-staged": "catalog:script",
+    "markdown-it-mathjax3": "catalog:frontend",
+    "prettier": "catalog:lint",
+    "rollup": "catalog:build",
+    "rollup-plugin-dts": "catalog:build",
+    "rollup-plugin-esbuild": "catalog:build",
+    "simple-git-hooks": "catalog:script",
+    "tinyglobby": "catalog:script",
+    "typescript": "catalog:types",
+    "vue-tsc": "catalog:types"
+  },
+  "dependencies": {
+    "vite": "catalog:build"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "prettier --experimental-cli --ignore-unknown --write"
+  },
+  "packageManager": "pnpm@10.32.1"
+}

@@ -1,0 +1,27 @@
+.NSSidebar .site-title {
+  color: #fff !important;
+}
+
+.NSSidebar .site-desc {
+  color: #fff !important;
+}
+
+.NSSidebar .NSNavBarMenuLink {
+  color: #fff !important;
+}
+
+.NSSidebar .NSSidebarAction {
+  color: #fff !important;
+}
+
+.NSSidebar .NSSidebarAction.is-with-divider::after {
+  background-color: #fff !important;
+}
+
+.NSSidebar .NSSidebarSocialLink {
+  color: #fff !important;
+}
+
+.NSSidebar .NSSidebarSocialLink:hover {
+  color: #fff !important;
+}

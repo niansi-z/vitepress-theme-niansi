@@ -1,0 +1,131 @@
+{
+  "name": "vitepress-theme-niansi",
+  "version": "0.0.0",
+  "description": "A VitePress theme with tons of features",
+  "type": "module",
+  "keywords": [
+    "vitepress",
+    "theme",
+    "vitepress-theme",
+    "vue",
+    "markdown",
+    "documentation",
+    "blog"
+  ],
+  "homepage": "https://theme.niansi.com.cn/",
+  "bugs": {
+    "url": "https://github.com/niansi-z/vitepress-theme-niansi/issues"
+  },
+  "repository": "github:niansi-z/vitepress-theme-niansi",
+  "author": "廿四",
+  "license": "MIT",
+  "main": "dist/node/index.js",
+  "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./dist/node/index.js"
+    },
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json",
+    "./client": {
+      "types": "./client.d.ts",
+      "default": "./dist/client/index.js"
+    },
+    "./theme": {
+      "types": "./theme.d.ts",
+      "default": "./dist/client/theme-default/index.js"
+    },
+    "./theme-without-fonts": {
+      "types": "./theme-without-fonts.d.ts",
+      "default": "./dist/client/theme-default/without-fonts.js"
+    }
+  },
+  "bin": {
+    "vitepress-theme-niansi": "bin/vitepress-theme-niansi.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "types",
+    "template",
+    "client.d.ts",
+    "theme.d.ts",
+    "theme-without-fonts.d.ts",
+    "lib"
+  ],
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('./dist',{recursive:!0,force:!0,maxRetries:10})\"",
+    "dev": "pnpm clean && pnpm dev:shared && pnpm dev:start",
+    "dev:start": "pnpm --stream '/^dev:(client|node|watch)$/'",
+    "dev:client": "tsc --sourcemap -w --preserveWatchOutput -p src/client",
+    "dev:node": "DEV=true pnpm build:node -w",
+    "dev:shared": "node scripts/copyShared",
+    "dev:watch": "node scripts/watchAndCopy",
+    "build": "pnpm build:prepare && pnpm build:client && pnpm build:node",
+    "build:prepare": "pnpm clean && node scripts/copyShared",
+    "build:client": "vue-tsc --noEmit -p src/client && tsc -p src/client && node scripts/copyClient",
+    "build:node": "tsc -p src/node --noEmit && rollup --config rollup.config.ts --configPlugin esbuild",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "node scripts/release.js"
+  },
+  "devDependencies": {
+    "@clack/prompts": "catalog:script",
+    "@types/fs-extra": "catalog:types",
+    "@types/lodash.template": "catalog:types",
+    "@types/mark.js": "catalog:types",
+    "@types/minimist": "catalog:types",
+    "conventional-changelog": "catalog:script",
+    "conventional-changelog-angular": "catalog:script",
+    "execa": "catalog:script",
+    "fs-extra": "catalog:script",
+    "lodash.template": "catalog:script",
+    "markdown-it": "catalog:frontend",
+    "markdown-it-async": "catalog:frontend",
+    "markdown-it-mathjax3": "catalog:frontend",
+    "minimist": "catalog:script",
+    "picocolors": "catalog:script",
+    "prettier": "catalog:lint",
+    "prompts": "catalog:script",
+    "punycode": "catalog:prod",
+    "semver": "catalog:script"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "catalog:frontend",
+    "@types/markdown-it": "catalog:types",
+    "@vue/shared": "catalog:frontend",
+    "@vueuse/core": "catalog:frontend",
+    "@vueuse/integrations": "catalog:frontend",
+    "cheerio": "catalog:script",
+    "domhandler": "catalog:script",
+    "focus-trap": "catalog:frontend",
+    "gray-matter": "catalog:frontend",
+    "mark.js": "catalog:frontend",
+    "marked": "catalog:frontend",
+    "minisearch": "catalog:frontend",
+    "vite": "catalog:build",
+    "vitepress": "catalog:build",
+    "vue": "catalog:frontend"
+  },
+  "peerDependencies": {
+    "@docsearch/css": "^4",
+    "@docsearch/js": "^4",
+    "@docsearch/sidepanel-js": "^4",
+    "markdown-it-mathjax3": "^4"
+  },
+  "peerDependenciesMeta": {
+    "@docsearch/css": {
+      "optional": true
+    },
+    "@docsearch/js": {
+      "optional": true
+    },
+    "@docsearch/sidepanel-js": {
+      "optional": true
+    },
+    "markdown-it-mathjax3": {
+      "optional": true
+    }
+  },
+  "packageManager": "pnpm@10.28.0"
+}

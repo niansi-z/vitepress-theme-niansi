@@ -1,0 +1,78 @@
+.vp-code-group {
+  margin-top: 1rem;
+}
+
+.vp-code-group .tabs {
+  position: relative;
+  display: flex;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+  padding: 0 0.75rem;
+  background-color: var(--ns-language-bg);
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-shadow: var(--ns-language-border-color) 0 0 0 1px;
+}
+
+@media (min-width: 576px) {
+  .vp-code-group .tabs {
+    margin-right: 0;
+    margin-left: 0;
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+.vp-code-group .tabs input {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vp-code-group .tabs label {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.75rem;
+  line-height: 3rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ns-code-lang-color);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.25s;
+}
+
+.vp-code-group .tabs label:first-child {
+  margin-left: 0;
+}
+
+.vp-code-group .tabs label:after {
+  position: absolute;
+  right: 8px;
+  bottom: 0;
+  left: 8px;
+  z-index: 1;
+  height: 2px;
+  border-radius: 2px;
+  content: '';
+  background-color: transparent;
+  transition: background-color 0.25s;
+}
+
+.vp-code-group input:checked + label {
+  color: var(--ns-code-tab-active-text-color);
+}
+
+.vp-code-group input:checked + label::after {
+  background-color: var(--ns-code-tab-active-bar-color);
+}
+
+.vp-code-group div[class*='language-'] {
+  display: none;
+  margin-top: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.vp-code-group div[class*='language-'].active {
+  display: block;
+}

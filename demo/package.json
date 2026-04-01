@@ -1,0 +1,23 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.0",
+  "devDependencies": {
+    "markdown-it-mathjax3": "catalog:frontend",
+    "vitepress": "catalog:build",
+    "vitepress-plugin-group-icons": "^1.7.1",
+    "vitepress-theme-niansi": "workspace:*",
+    "vue": "catalog:frontend"
+  }
+}

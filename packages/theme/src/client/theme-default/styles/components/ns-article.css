@@ -1,0 +1,20 @@
+.excerpt.ns-doc h1,
+.excerpt.ns-doc h2,
+.excerpt.ns-doc h3,
+.excerpt.ns-doc h4,
+.excerpt.ns-doc h5,
+.excerpt.ns-doc h6 {
+  margin: 0.5rem 0;
+}
+
+.excerpt.ns-doc h1 {
+  display: none;
+}
+
+.excerpt.ns-doc h2 {
+  font-size: 1.2rem;
+}
+
+.excerpt.ns-doc div[class*='language-'] .copy {
+  display: none;
+}
