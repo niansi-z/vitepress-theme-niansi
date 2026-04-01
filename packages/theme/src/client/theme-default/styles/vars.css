@@ -113,6 +113,19 @@
   --ns-docsearch-footer-bg: #f6f6f7;
 
   --ns-back-to-top-shadow: #00000026;
+
+  --ns-badge-tip-text: #18794e;
+  --ns-badge-tip-bg: #10b98124;
+  --ns-badge-warning-text: #915930;
+  --ns-badge-warning-bg: #eab30824;
+  --ns-badge-danger-text: #b8272c;
+  --ns-badge-danger-bg: #f43f5e24;
+  --ns-badge-important-text: #6f42c1;
+  --ns-badge-important-bg: #9f7aea24;
+  --ns-badge-info-text: #2888a7;
+  --ns-badge-info-bg: #1bb2e524;
+  --ns-badge-note-text: #656869;
+  --ns-badge-note-bg: #8e96aa24;
 }
 
 .dark {
@@ -231,4 +244,17 @@
   --ns-docsearch-footer-bg: #161618;
 
   --ns-back-to-top-shadow: #0000004d;
+
+  --ns-badge-tip-text: #3dd68c;
+  --ns-badge-tip-bg: #10b98129;
+  --ns-badge-warning-text: #f9b44e;
+  --ns-badge-warning-bg: #eab30829;
+  --ns-badge-danger-text: #f66f81;
+  --ns-badge-danger-bg: #f43f5e29;
+  --ns-badge-important-text: #c8abfa;
+  --ns-badge-important-bg: #9f7aea29;
+  --ns-badge-info-text: #c9e8f2;
+  --ns-badge-info-bg: #1bb2e529;
+  --ns-badge-note-text: #939499;
+  --ns-badge-note-bg: #65758529;
 }
