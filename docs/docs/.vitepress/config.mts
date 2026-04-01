@@ -27,7 +27,6 @@ export default defineConfig({
       { text: 'Tags', link: '/tags/', activeMatch: '/tags/' },
       { text: 'Categories', link: '/categories/', activeMatch: '/categories/' },
       { text: 'Archives', link: '/archives/', activeMatch: '/archives/' },
-      { text: '欠薪？', link: '/case-salary-delay' },
       { text: 'About', link: '/about' }
     ],
     sidebar: [
