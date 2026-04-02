@@ -791,7 +791,7 @@ function onMouseMove(e: MouseEvent) {
 .titles :deep(mark),
 .excerpt :deep(mark) {
   background-color: var(--ns-highlighter-rouge-color);
-  color: var(--ns-main-bg);
+  color: var(--ns-c-bg);
   border-radius: 4px;
   padding: 0 4px;
 }
@@ -810,7 +810,7 @@ function onMouseMove(e: MouseEvent) {
   left: 0;
   width: 100%;
   height: 0.5rem;
-  background: linear-gradient(transparent, var(--ns-main-bg));
+  background: linear-gradient(transparent, var(--ns-c-bg));
   z-index: 1000;
 }
 
@@ -820,7 +820,7 @@ function onMouseMove(e: MouseEvent) {
   left: 0;
   width: 100%;
   height: 0.5rem;
-  background: linear-gradient(var(--ns-main-bg), transparent);
+  background: linear-gradient(var(--ns-c-bg), transparent);
   z-index: 1000;
 }
 

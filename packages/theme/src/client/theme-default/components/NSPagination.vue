@@ -136,7 +136,7 @@ function createRange(start: number, end: number): number[] {
   height: 2rem;
   padding: 0 0.5rem;
   border: 1px solid var(--ns-btn-border-color);
-  background: var(--ns-button-bg);
+  background: var(--ns-btn-bg);
   color: var(--ns-text-color);
   border-radius: 6px;
   cursor: pointer;

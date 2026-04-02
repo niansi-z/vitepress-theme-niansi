@@ -19,7 +19,7 @@ import NSTopBarTitle from './NSTopBarTitle.vue'
 <style scoped>
 .NSTopBar {
   position: sticky;
-  background: var(--ns-main-bg);
+  background: var(--ns-c-bg);
   z-index: 10;
   top: 0;
   height: 3.5rem;

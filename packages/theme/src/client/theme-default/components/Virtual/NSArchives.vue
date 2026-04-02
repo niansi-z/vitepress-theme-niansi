@@ -99,7 +99,7 @@ const formatDayMonth = (ts: number) => {
 }
 
 .list li:nth-child(2n + 1) {
-  background-color: var(--ns-main-bg, #ffffff);
+  background-color: var(--ns-c-bg);
   background-image: var(--ns-archives-odd-bg);
 }
 
@@ -141,7 +141,7 @@ const formatDayMonth = (ts: number) => {
 }
 
 .post:hover {
-  color: var(--ns-hover-color);
+  color: var(--ns-link-hover-color);
 }
 
 .year:nth-of-type(n + 2):before {

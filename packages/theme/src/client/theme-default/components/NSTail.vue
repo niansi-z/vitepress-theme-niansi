@@ -70,7 +70,7 @@ const { theme } = useData()
 }
 
 .tail-link:hover {
-  color: var(--ns-hover-color);
-  border-bottom-color: var(--ns-hover-color);
+  color: var(--ns-link-hover-color);
+  border-bottom-color: var(--ns-link-hover-color);
 }
 </style>

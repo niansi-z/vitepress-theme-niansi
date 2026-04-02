@@ -39,7 +39,7 @@ const { tagGroups } = usePosts()
 }
 
 .tag:hover {
-  color: var(--ns-hover-color);
+  color: var(--ns-link-hover-color);
   background-color: var(--ns-tag-hover);
   transition: background 0.35s ease-in-out;
 }

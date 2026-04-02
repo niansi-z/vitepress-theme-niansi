@@ -96,8 +96,8 @@
 }
 
 .ns-doc a:hover {
-  color: var(--ns-hover-color);
-  border-bottom: 1px solid var(--ns-hover-color);
+  color: var(--ns-link-hover-color);
+  border-bottom: 1px solid var(--ns-link-hover-color);
   text-decoration: none;
 }
 
@@ -142,7 +142,7 @@
 }
 
 .ns-doc tr {
-  background-color: var(--ns-main-bg);
+  background-color: var(--ns-c-bg);
 }
 
 .ns-doc tr:nth-child(2n) {

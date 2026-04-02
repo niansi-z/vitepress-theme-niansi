@@ -12,12 +12,12 @@
   --docsearch-actions-width: auto;
   --docsearch-background-color: var(--ns-docsearch-search-bg);
   --docsearch-container-background: var(--ns-backdrop-bg-color);
-  --docsearch-dropdown-menu-background: var(--ns-main-bg);
+  --docsearch-dropdown-menu-background: var(--ns-c-bg);
   --docsearch-dropdown-menu-item-hover-background: var(--ns-tag-hover);
   --docsearch-focus-color: var(--ns-link-color);
   --docsearch-footer-background: var(--ns-docsearch-footer-bg);
   --docsearch-highlight-color: var(--ns-link-color);
-  --docsearch-hit-background: var(--ns-main-bg);
+  --docsearch-hit-background: var(--ns-c-bg);
   --docsearch-hit-color: var(--ns-text-color);
   --docsearch-hit-highlight-color: var(--ns-tag-hover);
   --docsearch-icon-color: var(--ns-text-muted-color);

@@ -65,7 +65,7 @@ onMounted(() => {
   height: 48px;
   inset-inline-end: 1rem;
   z-index: 29;
-  background: var(--ns-main-bg);
+  background: var(--ns-c-bg);
   color: var(--ns-link-color);
   box-shadow: 2px 2px 10px 4px var(--ns-back-to-top-shadow);
   cursor: pointer;

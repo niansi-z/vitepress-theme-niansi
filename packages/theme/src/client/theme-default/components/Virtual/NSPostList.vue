@@ -50,8 +50,8 @@ defineProps<{
 
 .post-link:hover {
   margin-bottom: -1px;
-  color: var(--ns-hover-color);
-  border-bottom: 1px solid var(--ns-hover-color);
+  color: var(--ns-link-hover-color);
+  border-bottom: 1px solid var(--ns-link-hover-color);
   text-decoration: none;
 }
 
