@@ -11,7 +11,7 @@
     "markdown-it-mathjax3": "catalog:frontend",
     "vitepress": "catalog:build",
     "vitepress-theme-niansi": "workspace:*",
-    "vitepress-plugin-group-icons": "^1.7.1",
+    "vitepress-plugin-group-icons": "catalog:frontend",
     "vue": "catalog:frontend"
   },
   "packageManager": "pnpm@10.28.0"

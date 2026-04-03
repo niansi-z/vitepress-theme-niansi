@@ -16,7 +16,7 @@
   "devDependencies": {
     "markdown-it-mathjax3": "catalog:frontend",
     "vitepress": "catalog:build",
-    "vitepress-plugin-group-icons": "^1.7.1",
+    "vitepress-plugin-group-icons": "catalog:frontend",
     "vitepress-theme-niansi": "workspace:*",
     "vue": "catalog:frontend"
   }
