@@ -142,7 +142,7 @@
 }
 
 .ns-doc tr {
-  background-color: var(--ns-c-bg);
+  background-color: var(--ns-bg);
 }
 
 .ns-doc tr:nth-child(2n) {
