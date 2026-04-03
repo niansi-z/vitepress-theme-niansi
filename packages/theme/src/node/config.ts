@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import type Token from 'markdown-it/lib/token.mjs'
 import type { MarkdownItAsync } from 'markdown-it-async'
 import type { UserConfig } from 'vitepress'
@@ -108,7 +110,27 @@ export function defineConfig<ThemeConfig = NiansiTheme.Config>(
     }
   }
 
+  // strip vp-icons.css injected by VitePress core
+  const themeHooks = {
+    transformHtml(html: string) {
+      return html.replace(
+        /\s*<link[^>]*href="[^"]*vp-icons\.css"[^>]*>\s*/,
+        ''
+      )
+    },
+    buildEnd(siteConfig: { outDir: string }) {
+      const iconsFile = path.join(siteConfig.outDir, 'vp-icons.css')
+      if (fs.existsSync(iconsFile)) {
+        fs.unlinkSync(iconsFile)
+      }
+    }
+  }
+
   // merge both vite and markdown additions into the user config
-  const merged = mergeConfig(config as Record<string, any>, mergeConfig(themeVite, themeMarkdown, true), true)
+  const merged = mergeConfig(
+    config as Record<string, any>,
+    mergeConfig(themeVite, mergeConfig(themeMarkdown, themeHooks, true), true),
+    true
+  )
   return merged as unknown as UserConfig<ThemeConfig>
 }
