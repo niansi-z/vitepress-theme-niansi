@@ -1,106 +1,217 @@
 /**
- * Color: Base
+ * Primitive: Constant
  * -------------------------------------------------------------------------- */
 
 :root {
-  --ns-c-white: #ffffff;
-  --ns-c-black: #000000;
+  --ns-color-white: #ffffff;
+  --ns-color-black: #000000;
 }
 
 /**
- * Color: Background
+ * Primitive: Neutral
+ * Scale 1–8: 1 = highest contrast, 8 = surface
  * -------------------------------------------------------------------------- */
 
 :root {
-  --ns-c-bg: var(--ns-c-white);
-  --ns-c-bg-soft: #fbfcfd;
-  --ns-c-bg-mute: #f6f6f7;
+  --ns-color-neutral-1: #2a2a2a;
+  --ns-color-neutral-2: #34343c;
+  --ns-color-neutral-3: #585858;
+  --ns-color-neutral-4: #757575;
+  --ns-color-neutral-5: #dee2e6;
+  --ns-color-neutral-6: #e9ecef;
+  --ns-color-neutral-7: #eeeeee;
+  --ns-color-neutral-8: #ffffff;
+  --ns-color-neutral-highlight: inherit;
 }
 
 .dark {
-  --ns-c-bg: #1b1b1e;
-  --ns-c-bg-soft: #252526;
-  --ns-c-bg-mute: #202127;
+  --ns-color-neutral-1: #cccccc;
+  --ns-color-neutral-2: #afb0b1;
+  --ns-color-neutral-3: #a7a7a7;
+  --ns-color-neutral-4: #868686;
+  --ns-color-neutral-5: #526c96;
+  --ns-color-neutral-6: #2e2f31;
+  --ns-color-neutral-7: #696969;
+  --ns-color-neutral-8: #1e1e1e;
+  --ns-color-neutral-highlight: #aeaeae;
 }
 
 /**
- * Color: Text
+ * Primitive: Primary (Brand Blue)
  * -------------------------------------------------------------------------- */
 
 :root {
-  --ns-c-text-1: #2a2a2a;
-  --ns-c-text-2: #34343c;
-  --ns-c-text-3: #585858;
-  --ns-c-text-4: #757575;
-  --ns-c-text-5: #dee2e6;
-  --ns-c-text-6: #e9ecef;
-  --ns-c-text-7: #eeeeee;
-  --ns-c-text-8: #ffffff;
-  --ns-c-text-9: #0056b2;
-  --ns-c-text-10: #007bff;
-  --ns-c-text-11: #0d6efd;
-  --ns-c-text-12: #ffffff;
-  --ns-c-text-13: #d2603a;
-
-  --ns-c-text-highlight: inherit;
+  --ns-color-primary-1: #0056b2;
+  --ns-color-primary-2: #007bff;
+  --ns-color-primary-3: #0d6efd;
 }
 
 .dark {
-  --ns-c-text-1: #cccccc;
-  --ns-c-text-2: #afb0b1;
-  --ns-c-text-3: #a7a7a7;
-  --ns-c-text-4: #868686;
-  --ns-c-text-5: #526C96;
-  --ns-c-text-6: #2e2f31;
-  --ns-c-text-7: #696969;
-  --ns-c-text-8: #1e1e1e;
-  --ns-c-text-9: #8ab4f8;
-  --ns-c-text-10: #007bff;
-  --ns-c-text-11: #0d6efd;
-  --ns-c-text-12: #ffffff;
-  --ns-c-text-13: #d2603a;
-
-  --ns-c-text-highlight: #aeaeae;
-}
-
-:root {
-  --ns-text-color: var(--ns-c-text-2);
-  --ns-text-muted-color: var(--ns-c-text-4);
-  --ns-text-muted-highlight-color: var(--ns-c-text-highlight);
-  --ns-heading-color: var(--ns-c-text-1);
-  --ns-label-color: var(--ns-c-text-3);
+  --ns-color-primary-1: #8ab4f8;
+  --ns-color-primary-2: #007bff;
+  --ns-color-primary-3: #0d6efd;
 }
 
 /**
- * Component: blockquote
+ * Primitive: Orange
  * -------------------------------------------------------------------------- */
 
 :root {
-  --ns-blockquote-border-color: var(--ns-c-text-7);
-  --ns-blockquote-text-color: var(--ns-c-text-4)
+  --ns-color-orange-1: #d2603a;
+}
+
+.dark {
+  --ns-color-orange-1: #d2603a;
 }
 
 /**
- * Component: Link
+ * Primitive: Sidebar
  * -------------------------------------------------------------------------- */
 
 :root {
-  --ns-link-color: var(--ns-c-text-9);
-  --ns-link-underline-color: var(--ns-c-text-5);
-  --ns-footer-link-color: var(--ns-c-text-11);
-  --ns-link-hover-color: var(--ns-c-text-13)
+  --ns-color-sidebar-1: #1d1d1d;
+  --ns-color-sidebar-2: #545454;
+  --ns-color-sidebar-3: rgb(223, 233, 241, 0.64);
+  --ns-color-sidebar-4: #f6f8fa;
+  --ns-color-sidebar-5: #efefef;
+  --ns-color-sidebar-6: var(--ns-color-white);
+}
+
+.dark {
+  --ns-color-sidebar-1: rgba(255, 255, 255, 0.95);
+  --ns-color-sidebar-2: #868686;
+  --ns-color-sidebar-3: #262626;
+  --ns-color-sidebar-4: #1e1e1e;
+  --ns-color-sidebar-5: #292929;
+  --ns-color-sidebar-6: rgba(206, 206, 206, 0.9);
 }
 
 /**
- * Component: Bottom
+ * Primitive: Status Colors (Grey / Blue / Green / Yellow / Red / Purple)
  * -------------------------------------------------------------------------- */
 
 :root {
-  --ns-btn-bg: var(--ns-c-text-8);
-  --ns-btn-border-color: var(--ns-c-text-6);
-  --ns-btn-hover-color: var(--ns-c-text-12);
-  --ns-btn-hover-border-color: var(--ns-c-text-10);
-  --ns-btn-hover-bg: var(--ns-c-text-11);
+  --ns-color-grey-text: #656869;
+  --ns-color-grey-soft: #8e96aa24;
+  --ns-color-blue-text: #2888a7;
+  --ns-color-blue-soft: #1bb2e524;
+  --ns-color-purple-text: #6f42c1;
+  --ns-color-purple-soft: #9f7aea24;
+  --ns-color-green-text: #18794e;
+  --ns-color-green-bg: #298459;
+  --ns-color-green-soft: #10b98124;
+  --ns-color-yellow-text: #915930;
+  --ns-color-yellow-soft: #eab30824;
+  --ns-color-red-text: #b8272c;
+  --ns-color-red-soft: #f43f5e24;
+  --ns-color-detail-bg: #8e96aa1a;
+}
+
+.dark {
+  --ns-color-grey-text: #939499;
+  --ns-color-grey-soft: #65758529;
+  --ns-color-blue-text: #c9e8f2;
+  --ns-color-blue-soft: #1bb2e529;
+  --ns-color-purple-text: #c8abfa;
+  --ns-color-purple-soft: #9f7aea29;
+  --ns-color-green-text: #3dd68c;
+  --ns-color-green-soft: #10b98129;
+  --ns-color-yellow-text: #f9b44e;
+  --ns-color-yellow-soft: #eab30829;
+  --ns-color-red-text: #f66f81;
+  --ns-color-red-soft: #f43f5e29;
+  --ns-color-detail-bg: #6575851f;
+}
+
+/**
+ * Semantic: Background
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --ns-bg: var(--ns-color-white);
+  --ns-bg-soft: #fbfcfd;
+  --ns-bg-mute: #f6f6f7;
+}
+
+.dark {
+  --ns-bg: #1b1b1e;
+  --ns-bg-soft: #252526;
+  --ns-bg-mute: #202127;
+}
+
+/**
+ * Semantic: Text
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --ns-text-color: var(--ns-color-neutral-2);
+  --ns-text-muted-color: var(--ns-color-neutral-4);
+  --ns-text-muted-highlight-color: var(--ns-color-neutral-highlight);
+  --ns-heading-color: var(--ns-color-neutral-1);
+  --ns-label-color: var(--ns-color-neutral-3);
+}
+
+/**
+ * Semantic: Link
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --ns-link-color: var(--ns-color-primary-1);
+  --ns-link-underline-color: var(--ns-color-neutral-5);
+  --ns-link-hover-color: var(--ns-color-orange-1);
+}
+
+/**
+ * Semantic: Border & Divider
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --ns-border-color: #dee2e6;
+  --ns-divider-color: #e2e2e3;
+  --ns-main-border-color: #f3f3f3;
+  --ns-backdrop-bg-color: rgba(0, 0, 0, 0.6);
+}
+
+.dark {
+  --ns-border-color: #3b4f58;
+  --ns-divider-color: #373737;
+  --ns-main-border-color: #2c2d2d;
+  --ns-backdrop-bg-color: rgba(0, 0, 0, 0.6);
+}
+
+/**
+ * Semantic: Highlight
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --ns-outline-highlight-color: #0550ae;
+  --ns-highlighter-rouge-color: #3f596f;
+}
+
+.dark {
+  --ns-outline-highlight-color: #74b2f3;
+  --ns-highlighter-rouge-color: #c9def1;
+}
+
+/**
+ * Component: Blockquote
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --ns-blockquote-border-color: var(--ns-color-neutral-7);
+  --ns-blockquote-text-color: var(--ns-color-neutral-4);
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --ns-btn-bg: var(--ns-color-neutral-8);
+  --ns-btn-border-color: var(--ns-color-neutral-6);
+  --ns-btn-hover-color: var(--ns-color-white);
+  --ns-btn-hover-border-color: var(--ns-color-primary-2);
+  --ns-btn-hover-bg: var(--ns-color-primary-3);
 }
 
 /**
@@ -108,30 +219,12 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-  --ns-sidebar-1: #1d1d1d;
-  --ns-sidebar-2: #545454;
-  --ns-sidebar-3: rgb(223, 233, 241, 0.64);
-  --ns-sidebar-4: #f6f8fa;
-  --ns-sidebar-5: #efefef;
-  --ns-sidebar-6: var(--ns-c-white);
-}
-
-.dark {
-  --ns-sidebar-1: rgba(255, 255, 255, 0.95);
-  --ns-sidebar-2: #868686;
-  --ns-sidebar-3: #262626;
-  --ns-sidebar-4: #1e1e1e;
-  --ns-sidebar-5: #292929;
-  --ns-sidebar-6: rgba(206, 206, 206, 0.9);
-}
-
-:root {
-  --ns-sidebar-bg: var(--ns-sidebar-4);
-  --ns-sidebar-border-color: var(--ns-sidebar-5);
-  --ns-sidebar-muted-color: var(--ns-sidebar-2);
-  --ns-sidebar-active-color: var(--ns-sidebar-1);
-  --ns-sidebar-hover-bg: var(--ns-sidebar-3);
-  --ns-avatar-border-color: var(--ns-sidebar-6);
+  --ns-sidebar-bg: var(--ns-color-sidebar-4);
+  --ns-sidebar-border-color: var(--ns-color-sidebar-5);
+  --ns-sidebar-muted-color: var(--ns-color-sidebar-2);
+  --ns-sidebar-active-color: var(--ns-color-sidebar-1);
+  --ns-sidebar-hover-bg: var(--ns-color-sidebar-3);
+  --ns-avatar-border-color: var(--ns-color-sidebar-6);
 }
 
 /**
@@ -139,7 +232,7 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-  --ns-td-odd-bg: var(--ns-c-bg-soft)
+  --ns-td-odd-bg: var(--ns-bg-soft);
 }
 
 /**
@@ -147,7 +240,7 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-  --ns-card-bg: var(--ns-c-bg);
+  --ns-card-bg: var(--ns-bg);
   --ns-card-hover-bg: #e2e2e2;
   --ns-card-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.05);
   --ns-card-cap-bg: rgba(33, 37, 41, 0.03);
@@ -159,8 +252,6 @@
   --ns-card-shadow: rgba(21, 21, 21, 0.72) 0 6px 18px 0, rgba(137, 135, 135, 0.24) 0 0 0 1px;
   --ns-card-cap-bg: #1e1e1e;
 }
-
-
 
 /**
  * Component: Code
@@ -201,48 +292,7 @@
   --ns-code-line-diff-add-color: #10b98129;
   --ns-code-line-diff-add-symbol-color: #298459;
   --ns-code-line-error-color: #f43f5e29;
-  --ns-code-line-warning-color: #ffc10729;}
-
-:root {
-}
-
-/**
- * Component: Custom Block & Badge
- * -------------------------------------------------------------------------- */
-
-:root {
-  --ns-c-grey-text: #656869;
-  --ns-c-grey-soft: #8e96aa24;
-  --ns-c-purple-text: #6f42c1;
-  --ns-c-purple-soft: #9f7aea24;
-  --ns-c-blue-text: #2888a7;
-  --ns-c-blue-soft: #1bb2e524;
-  --ns-c-green-text: #18794e;
-  --ns-c-green-bg: #298459;
-  --ns-c-green-soft: #10b98124;
-  --ns-c-yellow-text: #915930;
-  --ns-c-yellow-soft: #eab30824;
-  --ns-c-red-text: #b8272c;
-  --ns-c-red-soft: #f43f5e24;
-  --ns-c-detail-bg: #8e96aa1a;
-  --ns-custom-block-text: rgba(46, 46, 46, 0.77);
-}
-
-.dark {
-  --ns-c-grey-text: #939499;
-  --ns-c-grey-soft: #65758529;
-  --ns-c-blue-text: #c9e8f2;
-  --ns-c-blue-soft: #1bb2e529;
-  --ns-c-purple-text: #c8abfa;
-  --ns-c-purple-soft: #9f7aea29;
-  --ns-c-green-text: #3dd68c;
-  --ns-c-green-soft: #10b98129;
-  --ns-c-yellow-text: #f9b44e;
-  --ns-c-yellow-soft: #eab30829;
-  --ns-c-red-text: #f66f81;
-  --ns-c-red-soft: #f43f5e29;
-  --ns-c-detail-bg: #6575851f;
-  --ns-custom-block-text: rgba(216, 212, 212, 0.75);
+  --ns-code-line-warning-color: #ffc10729;
 }
 
 /**
@@ -250,21 +300,26 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-  --ns-custom-block-info-bg: var(--ns-c-blue-soft);
-  --ns-custom-block-info-icon-color: var(--ns-c-blue-text);
-  --ns-custom-block-tip-bg: var(--ns-c-green-soft);
-  --ns-custom-block-tip-icon-color: var(--ns-c-green-text);
-  --ns-custom-block-warning-bg: var(--ns-c-yellow-soft);
-  --ns-custom-block-warning-icon-color: var(--ns-c-red-text);
-  --ns-custom-block-danger-bg: var(--ns-c-red-soft);
-  --ns-custom-block-danger-icon-color: var(--ns-c-red-text);
-  --ns-custom-block-caution-bg: var(--ns-c-red-soft);
-  --ns-custom-block-caution-icon-color: var(--ns-c-red-text);
-  --ns-custom-block-note-bg: var(--ns-c-grey-soft);
-  --ns-custom-block-note-icon-color: var(--ns-c-grey-text);
-  --ns-custom-block-important-bg: var(--ns-c-purple-soft);
-  --ns-custom-block-important-icon-color: var(--ns-c-purple-text);
-  --ns-custom-block-details-bg: var(--ns-c-detail-bg);
+  --ns-custom-block-text: rgba(46, 46, 46, 0.77);
+  --ns-custom-block-info-bg: var(--ns-color-blue-soft);
+  --ns-custom-block-info-icon-color: var(--ns-color-blue-text);
+  --ns-custom-block-tip-bg: var(--ns-color-green-soft);
+  --ns-custom-block-tip-icon-color: var(--ns-color-green-text);
+  --ns-custom-block-warning-bg: var(--ns-color-yellow-soft);
+  --ns-custom-block-warning-icon-color: var(--ns-color-red-text);
+  --ns-custom-block-danger-bg: var(--ns-color-red-soft);
+  --ns-custom-block-danger-icon-color: var(--ns-color-red-text);
+  --ns-custom-block-caution-bg: var(--ns-color-red-soft);
+  --ns-custom-block-caution-icon-color: var(--ns-color-red-text);
+  --ns-custom-block-note-bg: var(--ns-color-grey-soft);
+  --ns-custom-block-note-icon-color: var(--ns-color-grey-text);
+  --ns-custom-block-important-bg: var(--ns-color-purple-soft);
+  --ns-custom-block-important-icon-color: var(--ns-color-purple-text);
+  --ns-custom-block-details-bg: var(--ns-color-detail-bg);
+}
+
+.dark {
+  --ns-custom-block-text: rgba(216, 212, 212, 0.75);
 }
 
 /**
@@ -272,77 +327,130 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-  --ns-badge-tip-text: var(--ns-c-green-text);
-  --ns-badge-tip-bg: var(--ns-c-green-soft);
-  --ns-badge-warning-text: var(--ns-c-yellow-text);
-  --ns-badge-warning-bg: var(--ns-c-yellow-soft);
-  --ns-badge-danger-text: var(--ns-c-red-text);
-  --ns-badge-danger-bg: var(--ns-c-red-soft);
-  --ns-badge-important-text: var(--ns-c-purple-text);
-  --ns-badge-important-bg: var(--ns-c-purple-soft);
-  --ns-badge-info-text: var(--ns-c-blue-text);
-  --ns-badge-info-bg: var(--ns-c-blue-soft);
-  --ns-badge-note-text: var(--ns-c-grey-text);
-  --ns-badge-note-bg: var(--ns-c-grey-soft);
+  --ns-badge-tip-text: var(--ns-color-green-text);
+  --ns-badge-tip-bg: var(--ns-color-green-soft);
+  --ns-badge-warning-text: var(--ns-color-yellow-text);
+  --ns-badge-warning-bg: var(--ns-color-yellow-soft);
+  --ns-badge-danger-text: var(--ns-color-red-text);
+  --ns-badge-danger-bg: var(--ns-color-red-soft);
+  --ns-badge-important-text: var(--ns-color-purple-text);
+  --ns-badge-important-bg: var(--ns-color-purple-soft);
+  --ns-badge-info-text: var(--ns-color-blue-text);
+  --ns-badge-info-bg: var(--ns-color-blue-soft);
+  --ns-badge-note-text: var(--ns-color-grey-text);
+  --ns-badge-note-bg: var(--ns-color-grey-soft);
 }
 
 /**
- * Component: Other
+ * Component: Tag
  * -------------------------------------------------------------------------- */
 
 :root {
-  --ns-border-color: #dee2e6;
   --ns-tag-shadow: #e9ecef;
   --ns-tag-hover: #dee2e6;
+}
+
+.dark {
+  --ns-tag-shadow: #202121;
+  --ns-tag-hover: #2b383e;
+}
+
+/**
+ * Component: Categories
+ * -------------------------------------------------------------------------- */
+
+:root {
   --ns-categories-border: rgba(0, 0, 0, 0.125);
-  --ns-outline-highlight-color: #0550ae;
-  --ns-divider-color: #e2e2e3;
-  --ns-backdrop-bg-color: rgba(0, 0, 0, 0.6);
-  --ns-search-button-color: #eeeeee;
-  --ns-highlighter-rouge-color: #3f596f;
-  --ns-archives-odd-bg: linear-gradient(
-    to left,
-    #ffffff,
-    #FBFBFB,
-    #FBFBFB,
-    #ffffff
-  );
+}
+
+.dark {
+  --ns-categories-border: rgba(64, 66, 69, 0.5);
+}
+
+/**
+ * Component: Archives
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --ns-archives-odd-bg: linear-gradient(to left, #ffffff, #fbfbfb, #fbfbfb, #ffffff);
   --ns-archives-line-color: rgba(0, 0, 0, 0.075);
-  --ns-main-border-color: #f3f3f3;
-  --ns-top-bar-text-color: #4E4E4E;
-  --ns-toc-popup-border-color: lightgray;
+}
+
+.dark {
+  --ns-archives-odd-bg: linear-gradient(to left, #1a1a1e, #27272d, #27272d, #27272d, #1a1a1e);
+  --ns-archives-line-color: #3f4144;
+}
+
+/**
+ * Component: TopBar & Site
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --ns-top-bar-text-color: #4e4e4e;
   --ns-site-title-color: #717171;
   --ns-site-subtitle-color: #717171;
+}
+
+.dark {
+  --ns-top-bar-text-color: #afb0b1;
+  --ns-site-title-color: #717070;
+  --ns-site-subtitle-color: #868686;
+}
+
+/**
+ * Component: Footer
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --ns-footer-link-color: var(--ns-color-primary-3);
+}
+
+/**
+ * Component: TOC
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --ns-toc-popup-border-color: lightgray;
+}
+
+.dark {
+  --ns-toc-popup-border-color: #373737;
+}
+
+/**
+ * Component: Search
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --ns-search-button-color: #eeeeee;
+}
+
+.dark {
+  --ns-search-button-color: #2c3437;
+}
+
+/**
+ * Component: DocSearch
+ * -------------------------------------------------------------------------- */
+
+:root {
   --ns-docsearch-search-bg: #f6f6f7;
   --ns-docsearch-footer-bg: #f6f6f7;
+}
+
+.dark {
+  --ns-docsearch-search-bg: #202127;
+  --ns-docsearch-footer-bg: #161618;
+}
+
+/**
+ * Component: Back to Top
+ * -------------------------------------------------------------------------- */
+
+:root {
   --ns-back-to-top-shadow: #00000026;
 }
 
 .dark {
-  --ns-border-color: #3B4F58;
-  --ns-tag-shadow: #202121;
-  --ns-tag-hover: #2B383E;
-  --ns-categories-border: rgba(64, 66, 69, 0.5);
-  --ns-outline-highlight-color: #74B2F3;
-  --ns-divider-color: #373737;
-  --ns-backdrop-bg-color: rgba(0, 0, 0, 0.6);
-  --ns-search-button-color: #2c3437;
-  --ns-highlighter-rouge-color: #c9def1;
-  --ns-archives-odd-bg: linear-gradient(
-    to left,
-    #1A1A1E,
-    #27272D,
-    #27272D,
-    #27272D,
-    #1A1A1E
-  );
-  --ns-archives-line-color: #3F4144;
-  --ns-main-border-color: #2C2D2D;
-  --ns-top-bar-text-color: #AFB0B1;
-  --ns-toc-popup-border-color: #373737;
-  --ns-site-title-color: #717070;
-  --ns-site-subtitle-color: #868686;
-  --ns-docsearch-search-bg: #202127;
-  --ns-docsearch-footer-bg: #161618;
   --ns-back-to-top-shadow: #0000004d;
 }
