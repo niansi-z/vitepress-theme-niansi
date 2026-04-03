@@ -64,6 +64,9 @@ catalogs:
     markdown-it-async:
       specifier: ^2.2.0
       version: 2.2.0
+    markdown-it-footnote:
+      specifier: ^4.0.0
+      version: 4.0.0
     markdown-it-mathjax3:
       specifier: 4.3.2
       version: 4.3.2
@@ -73,6 +76,9 @@ catalogs:
     minisearch:
       specifier: ^7.2.0
       version: 7.2.0
+    vitepress-plugin-group-icons:
+      specifier: ^1.7.3
+      version: 1.7.3
     vue:
       specifier: ^3.5.30
       version: 3.5.30
@@ -146,6 +152,9 @@ catalogs:
     '@types/markdown-it':
       specifier: ^14.1.2
       version: 14.1.2
+    '@types/markdown-it-footnote':
+      specifier: ^3.0.4
+      version: 3.0.4
     '@types/minimist':
       specifier: ^1.2.5
       version: 1.2.5
@@ -240,8 +249,8 @@ importers:
         specifier: catalog:build
         version: 2.0.0-alpha.17(@types/node@25.5.0)(lightningcss@1.32.0)(markdown-it-mathjax3@4.3.2)(postcss@8.5.8)(typescript@5.9.3)(yaml@2.8.3)
       vitepress-plugin-group-icons:
-        specifier: ^1.7.1
-        version: 1.7.1(vite@7.3.1(@types/node@25.5.0)(lightningcss@1.32.0)(yaml@2.8.3))
+        specifier: catalog:frontend
+        version: 1.7.3(vite@7.3.1(@types/node@25.5.0)(lightningcss@1.32.0)(yaml@2.8.3))
       vitepress-theme-niansi:
         specifier: workspace:*
         version: link:../packages/theme
@@ -258,8 +267,8 @@ importers:
         specifier: catalog:build
         version: 2.0.0-alpha.17(@types/node@25.5.0)(lightningcss@1.32.0)(markdown-it-mathjax3@4.3.2)(postcss@8.5.8)(typescript@5.9.3)(yaml@2.8.3)
       vitepress-plugin-group-icons:
-        specifier: ^1.7.1
-        version: 1.7.1(vite@7.3.1(@types/node@25.5.0)(lightningcss@1.32.0)(yaml@2.8.3))
+        specifier: catalog:frontend
+        version: 1.7.3(vite@7.3.1(@types/node@25.5.0)(lightningcss@1.32.0)(yaml@2.8.3))
       vitepress-theme-niansi:
         specifier: workspace:*
         version: link:../packages/theme
@@ -308,6 +317,9 @@ importers:
       mark.js:
         specifier: catalog:frontend
         version: 8.11.1
+      markdown-it-footnote:
+        specifier: catalog:frontend
+        version: 4.0.0
       marked:
         specifier: catalog:frontend
         version: 17.0.4
@@ -336,6 +348,9 @@ importers:
       '@types/mark.js':
         specifier: catalog:types
         version: 8.11.12
+      '@types/markdown-it-footnote':
+        specifier: catalog:types
+        version: 3.0.4
       '@types/minimist':
         specifier: catalog:types
         version: 1.2.5
@@ -889,6 +904,9 @@ packages:
 
   '@types/mark.js@8.11.12':
     resolution: {integrity: sha512-244ZnaIBpz4c6xutliAnYVZp6xJlmC569jZqnR3ElO1Y01ooYASSVQEqpd2x0A2UfrgVMs5V9/9tUAdZaDMytQ==}
+
+  '@types/markdown-it-footnote@3.0.4':
+    resolution: {integrity: sha512-XJ6n+v+2u+2gmYLSHcxyoNT/YrgrKvHuDJQlykFjuxCQCr86P2/fx1V6/0lcKxv5cSIlCaJ6sUcNS3zDI7I+LA==}
 
   '@types/markdown-it@14.1.2':
     resolution: {integrity: sha512-promo4eFwuiW+TfGxhi+0x3czqTYJkG8qB17ZUJiVF10Xm7NLVRSLUsfRTU/6h1e24VvRnXCx+hG7li58lkzog==}
@@ -1573,6 +1591,9 @@ packages:
   markdown-it-async@2.2.0:
     resolution: {integrity: sha512-sITME+kf799vMeO/ww/CjH6q+c05f6TLpn6VOmmWCGNqPJzSh+uFgZoMB9s0plNtW6afy63qglNAC3MhrhP/gg==}
 
+  markdown-it-footnote@4.0.0:
+    resolution: {integrity: sha512-WYJ7urf+khJYl3DqofQpYfEYkZKbmXmwxQV8c8mO/hGIhgZ1wOe7R4HLFNwqx7TjILbnC98fuyeSsin19JdFcQ==}
+
   markdown-it-mathjax3@4.3.2:
     resolution: {integrity: sha512-TX3GW5NjmupgFtMJGRauioMbbkGsOXAAt1DZ/rzzYmTHqzkO1rNAdiMD4NiruurToPApn2kYy76x02QN26qr2w==}
 
@@ -2041,8 +2062,8 @@ packages:
       yaml:
         optional: true
 
-  vitepress-plugin-group-icons@1.7.1:
-    resolution: {integrity: sha512-3ZPcIqwHNBg1btrOOSecOqv8yJxHdu3W2ugxE5LusclDF005LAm60URMEmBQrkgl4JvM32AqJirqghK6lGIk8g==}
+  vitepress-plugin-group-icons@1.7.3:
+    resolution: {integrity: sha512-Nj2znOveQC7KH1CQ1k2WlVvEDAuymhumcUvD51ognVUv2yjrfAhOzL1VEESPzoJN0kWoRxXK+iu+OKNLe7unGQ==}
     peerDependencies:
       vite: '>=3'
     peerDependenciesMeta:
@@ -2503,6 +2524,10 @@ snapshots:
   '@types/mark.js@8.11.12':
     dependencies:
       '@types/jquery': 4.0.0
+
+  '@types/markdown-it-footnote@3.0.4':
+    dependencies:
+      '@types/markdown-it': 14.1.2
 
   '@types/markdown-it@14.1.2':
     dependencies:
@@ -3230,6 +3255,8 @@ snapshots:
       '@types/markdown-it': 14.1.2
       markdown-it: 14.1.1
 
+  markdown-it-footnote@4.0.0: {}
+
   markdown-it-mathjax3@4.3.2:
     dependencies:
       juice: 8.1.0
@@ -3687,7 +3714,7 @@ snapshots:
       lightningcss: 1.32.0
       yaml: 2.8.3
 
-  vitepress-plugin-group-icons@1.7.1(vite@7.3.1(@types/node@25.5.0)(lightningcss@1.32.0)(yaml@2.8.3)):
+  vitepress-plugin-group-icons@1.7.3(vite@7.3.1(@types/node@25.5.0)(lightningcss@1.32.0)(yaml@2.8.3)):
     dependencies:
       '@iconify-json/logos': 1.2.10
       '@iconify-json/vscode-icons': 1.2.45
