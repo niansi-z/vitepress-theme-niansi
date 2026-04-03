@@ -20,7 +20,9 @@ withDefaults(defineProps<Props>(), {
   height: 18px;
   font-size: 14px;
   line-height: 18px;
-  transition: background .3s ease, color .3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
   border-radius: 3px;
   padding: 0 6px;
 }
