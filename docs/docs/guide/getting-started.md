@@ -2,10 +2,8 @@
 title: Getting Started
 tags:
   - guide
-  - Getting Started
 categories:
   - guide
-  - Getting Started
 ---
 
 ## 安装

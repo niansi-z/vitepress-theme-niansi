@@ -24,6 +24,7 @@ export default defineConfig({
     sidebarBgImage: '/bg.png',
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Guide', link: '/guide/', activeMatch: '/guide/' },
       { text: 'Tags', link: '/tags/', activeMatch: '/tags/' },
       { text: 'Categories', link: '/categories/', activeMatch: '/categories/' },
       { text: 'Archives', link: '/archives/', activeMatch: '/archives/' },

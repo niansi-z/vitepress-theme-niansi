@@ -2,10 +2,8 @@
 title: Markdown 扩展
 tags:
   - guide
-  - markdown
 categories:
   - guide
-  - markdown
 outline: [2, 3]
 ---
 

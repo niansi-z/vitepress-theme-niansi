@@ -2,10 +2,8 @@
 title: Layout Slots
 tags:
   - guide
-  - Layout Slots
 categories:
   - guide
-  - Layout Slots
 ---
 
 主题的 `<Layout/>` 组件有一些插槽，能够被用来在页面的特定位置注入内容。
