@@ -99,7 +99,7 @@ const formatDayMonth = (ts: number) => {
 }
 
 .list li:nth-child(2n + 1) {
-  background-color: var(--ns-c-bg);
+  background-color: var(--ns-bg);
   background-image: var(--ns-archives-odd-bg);
 }
 

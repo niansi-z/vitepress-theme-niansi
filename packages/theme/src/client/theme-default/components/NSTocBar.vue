@@ -59,7 +59,7 @@ onBeforeUnmount(() => {
   margin: 0 -1rem;
   height: 3rem;
   padding: 0 1rem;
-  background: var(--ns-c-bg);
+  background: var(--ns-bg);
   border: 1px solid var(--ns-border-color);
   border-radius: 10px;
   z-index: 10;

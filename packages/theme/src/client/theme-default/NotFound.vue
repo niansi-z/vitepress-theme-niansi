@@ -86,7 +86,7 @@ const { currentLang } = useLangs()
 
 .link {
   background: var(--ns-link-color);
-  color: var(--ns-c-bg);
+  color: var(--ns-bg);
   border: 1px solid var(--ns-link-color);
   padding: 8px 16px;
   font-size: 14px;

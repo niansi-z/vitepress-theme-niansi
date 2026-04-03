@@ -33,7 +33,7 @@ const { theme, frontmatter } = useData()
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--ns-c-bg);
+  background-color: var(--ns-bg);
   height: 5rem;
   border-top: 1px solid var(--ns-main-border-color);
   font-size: 0.8rem;
