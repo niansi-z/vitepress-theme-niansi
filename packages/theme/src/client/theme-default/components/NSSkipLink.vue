@@ -30,9 +30,9 @@ watch(
   font-size: 12px;
   font-weight: bold;
   text-decoration: none;
-  color: var(--vp-c-brand-1);
-  box-shadow: var(--vp-shadow-3);
-  background-color: var(--vp-c-bg);
+  color: var(--ns-text-color);
+  box-shadow: var(--ns-card-shadow);
+  background-color: var(--ns-bg);
 }
 
 .NSSkipLink:focus {
