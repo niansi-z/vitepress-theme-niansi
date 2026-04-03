@@ -4,6 +4,7 @@ import type Token from 'markdown-it/lib/token.mjs'
 import type { MarkdownItAsync } from 'markdown-it-async'
 import type { UserConfig } from 'vitepress'
 import type { NiansiTheme } from 'vitepress-theme-niansi/theme'
+import markdownItFootnote from 'markdown-it-footnote'
 
 import { virtualTagPagesPlugin } from './plugins/virtualTagPlugin'
 import { virtualCategoriesPlugin } from './plugins/virtualCategoriesPlugin'
@@ -87,13 +88,18 @@ export function defineConfig<ThemeConfig = NiansiTheme.Config>(
     }
   }
 
-  // theme-provided markdown defaults (merged into user's `markdown` option)
+  // Combine theme's markdown config with the user's so both run.
+  // `markdown.config` is a function — mergeConfig would overwrite one with
+  // the other, so we compose them manually here.
+  const userMdConfig = (config as Record<string, any>).markdown?.config as
+    | ((md: MarkdownItAsync) => void)
+    | undefined
+
   const themeMarkdown = {
     markdown: {
-      // provide a `config` hook so theme can register markdown-it plugins
-      // consumers can still override or extend this in their site config
-
       config: (md: MarkdownItAsync) => {
+        md.use(markdownItFootnote)
+
         const imageRule = md.renderer.rules.image!
         md.renderer.rules.image = (tokens: Token[], idx: number, options, env, self) => {
           const token = tokens[idx]
@@ -106,8 +112,16 @@ export function defineConfig<ThemeConfig = NiansiTheme.Config>(
           token.attrSet('data-fancybox', 'gallery')
           return imageRule(tokens, idx, options, env, self)
         }
+
+        // run user's markdown config
+        userMdConfig?.(md)
       }
     }
+  }
+
+  // remove user's markdown.config to avoid duplicate invocation after merge
+  if ((config as Record<string, any>).markdown?.config) {
+    delete (config as Record<string, any>).markdown.config
   }
 
   // strip vp-icons.css injected by VitePress core
