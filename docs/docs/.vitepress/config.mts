@@ -11,7 +11,8 @@ export default defineConfig({
   description: 'Docs powered by vitepress-theme-niansi',
   lang: 'zh_CN',
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/niansi-logo-mini.svg' }]
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/niansi-logo-mini.svg' }],
+    ['meta', { name: 'msvalidate.01', content: 'F7BD16A214A903C5374848CEEC35E667' }]
   ],
   vite: {
     server: {
