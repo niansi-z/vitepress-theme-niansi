@@ -91,9 +91,7 @@ export function defineConfig<ThemeConfig = NiansiTheme.Config>(
   // Combine theme's markdown config with the user's so both run.
   // `markdown.config` is a function — mergeConfig would overwrite one with
   // the other, so we compose them manually here.
-  const userMdConfig = (config as Record<string, any>).markdown?.config as
-    | ((md: MarkdownItAsync) => void)
-    | undefined
+  const userMdConfig = (config as Record<string, any>).markdown?.config as ((md: MarkdownItAsync) => void) | undefined
 
   const themeMarkdown = {
     markdown: {
@@ -127,10 +125,7 @@ export function defineConfig<ThemeConfig = NiansiTheme.Config>(
   // strip vp-icons.css injected by VitePress core
   const themeHooks = {
     transformHtml(html: string) {
-      return html.replace(
-        /\s*<link[^>]*href="[^"]*vp-icons\.css"[^>]*>\s*/,
-        ''
-      )
+      return html.replace(/\s*<link[^>]*href="[^"]*vp-icons\.css"[^>]*>\s*/, '')
     },
     buildEnd(siteConfig: { outDir: string }) {
       const iconsFile = path.join(siteConfig.outDir, 'vp-icons.css')
