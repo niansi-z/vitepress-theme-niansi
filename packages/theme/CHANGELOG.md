@@ -1,3 +1,11 @@
+## [0.0.12](https://github.com/niansi-z/vitepress-theme-niansi/compare/v0.0.11...v0.0.12) (2026-04-08)
+
+### Features
+
+- **docs:** add npm social link ([e63bf0e](https://github.com/niansi-z/vitepress-theme-niansi/commit/e63bf0e7020abe706ea3fb4772ca3eff294a8f7e))
+- **theme:** add accordion sidebar navigation ([ddedcbf](https://github.com/niansi-z/vitepress-theme-niansi/commit/ddedcbf6d0516ed263e643454490044c4fc6532b))
+- **theme:** integrate markdown-it-footnote and fix md config merge ([e0d15cb](https://github.com/niansi-z/vitepress-theme-niansi/commit/e0d15cba3d356bb0c28086b687cd85f8fdd848e0))
+
 ## [0.0.11](https://github.com/niansi-z/vitepress-theme-niansi/compare/v0.0.10...v0.0.11) (2026-04-03)
 
 ### Features
