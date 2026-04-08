@@ -12,12 +12,14 @@ import NSPostNavigation from './NSPostNavigation.vue'
 
 const { getPostByUrl } = usePosts()
 const route = useRoute()
-const { theme } = useData()
+const { theme, page } = useData()
 const { headers } = useLayout()
 
 const post = computed(() => getPostByUrl(route.path))
 
 const pageName = computed(() => route.path.replace(/[./]+/g, '_').replace(/_html$/, ''))
+
+const hasLastUpdated = computed(() => page.value.lastUpdated)
 
 onMounted(() => {
   Fancybox.bind('[data-fancybox]', {
@@ -49,13 +51,15 @@ onUnmounted(() => {
       <slot name="doc-header-top" />
       <h1 id="doc-title" class="title">{{ post?.title ?? '' }}</h1>
       <div class="meta" role="note">
-        <span>
-          {{ theme?.postedMeta ?? 'Posted' }} <time :datetime="post?.date?.toString()">{{ getDate(post?.date) }}</time>
-        </span>
-        <span>
-          {{ theme?.lastUpdatedText ?? 'Updated' }}
-          <time :datetime="post?.lastUpdated?.toString()">{{ getDate(post?.lastUpdated) }}</time>
-        </span>
+        <template v-if="hasLastUpdated">
+          <span>
+            {{ theme?.postedMeta ?? 'Posted' }} <time :datetime="post?.date?.toString()">{{ getDate(post?.date) }}</time>
+          </span>
+            <span>
+            {{ theme?.lastUpdatedText ?? 'Updated' }}
+            <time :datetime="post?.lastUpdated?.toString()">{{ getDate(post?.lastUpdated) }}</time>
+          </span>
+        </template>
         <div class="info">
           <span v-if="post?.author">
             {{ theme?.authorMeta ?? 'By' }} <em>{{ post?.author }}</em>
