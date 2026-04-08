@@ -32,11 +32,10 @@ const href = computed(() => (typeof props.item.link === 'function' ? props.item.
 
 <style scoped>
 .NSNavBarMenuLink {
-  padding: 0.6rem 0;
+  padding: 0.6rem;
   margin: 0 1.5rem;
   display: flex;
   align-content: center;
-  justify-content: center;
   border-radius: 0.75rem;
   font-weight: 600;
   color: var(--ns-sidebar-muted-color);

@@ -32,7 +32,15 @@ export namespace NiansiTheme {
 
   export type ThemeableImage = DefaultTheme.ThemeableImage
 
+  export type NavItem = DefaultTheme.NavItem
+
+  export type NavItemComponent = DefaultTheme.NavItemComponent
+
+  export type NavItemChildren = DefaultTheme.NavItemChildren
+
   export type NavItemWithLink = DefaultTheme.NavItemWithLink
+
+  export type NavItemWithChildren = DefaultTheme.NavItemWithChildren
 
   export type SocialLink = DefaultTheme.SocialLink
 
