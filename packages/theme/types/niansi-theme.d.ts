@@ -28,6 +28,8 @@ export namespace NiansiTheme {
     categoriesMeta?: string
 
     excerptLength?: number
+
+    commentPlugin?: CommentPlugin
   }
 
   export type ThemeableImage = DefaultTheme.ThemeableImage
@@ -46,5 +48,22 @@ export namespace NiansiTheme {
 
   export type OutlineItem = DefaultTheme.OutlineItem
 
-  export type AlgoliaSearchOptions = DefaultTheme.AlgoliaSearchOptions
+  export type AlgoliaSearchOptions = DefaultTheme.AlgoliaSearchOption
+  
+  export interface WalineCommentOptions {
+    serverURL: string
+    [key: string]: any
+  }
+
+  export interface GiscusCommentOptions {
+    repo: string
+    repoId: string
+    category: string
+    categoryId: string
+    [key: string]: any
+  }
+
+  export type CommentPlugin =
+    | { provider: 'Waline'; options: WalineCommentOptions }
+    | { provider: 'Giscus'; options: GiscusCommentOptions }
 }

@@ -19,3 +19,9 @@ declare module 'mark.js/src/vanilla.js' {
   const mark: typeof Mark
   export default mark
 }
+
+declare module '@waline/client' {
+  export function init(options: Record<string, any>): { destroy: () => void } | null
+}
+
+declare module '@waline/client/style' {}

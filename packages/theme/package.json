@@ -113,6 +113,7 @@
     "@docsearch/css": "^4",
     "@docsearch/js": "^4",
     "@docsearch/sidepanel-js": "^4",
+    "@waline/client": "^3",
     "markdown-it-mathjax3": "^4"
   },
   "peerDependenciesMeta": {
@@ -123,6 +124,9 @@
       "optional": true
     },
     "@docsearch/sidepanel-js": {
+      "optional": true
+    },
+    "@waline/client": {
       "optional": true
     },
     "markdown-it-mathjax3": {

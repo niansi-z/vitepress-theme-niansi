@@ -9,6 +9,7 @@ import NSTocBar from './NSTocBar.vue'
 import { useLayout } from '../composables/layout'
 import NSTail from './NSTail.vue'
 import NSPostNavigation from './NSPostNavigation.vue'
+import NSComment from './NSComment.vue'
 
 const { getPostByUrl } = usePosts()
 const route = useRoute()
@@ -83,6 +84,8 @@ onUnmounted(() => {
 
     <NSPostNavigation :post />
     <slot name="doc-bottom" />
+
+    <NSComment />
   </div>
 </template>
 
