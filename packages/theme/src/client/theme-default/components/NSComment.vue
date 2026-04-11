@@ -13,10 +13,7 @@ const commentComponents: Record<string, ReturnType<typeof defineAsyncComponent>>
 
 <template>
   <div v-if="theme.commentPlugin?.provider" class="NSComment">
-    <component
-      :is="commentComponents[theme.commentPlugin.provider]"
-      :options="theme.commentPlugin.options"
-    />
+    <component :is="commentComponents[theme.commentPlugin.provider]" :options="theme.commentPlugin.options" />
   </div>
 </template>
 

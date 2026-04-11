@@ -41,19 +41,19 @@ function loadGiscus() {
 
 function updateTheme() {
   const iframe = containerRef.value?.querySelector<HTMLIFrameElement>('iframe.giscus-frame')
-  iframe?.contentWindow?.postMessage(
-    { giscus: { setConfig: { theme: getTheme() } } },
-    'https://giscus.app'
-  )
+  iframe?.contentWindow?.postMessage({ giscus: { setConfig: { theme: getTheme() } } }, 'https://giscus.app')
 }
 
 onMounted(() => {
   loadGiscus()
 })
 
-watch(() => route.path, () => {
-  nextTick(() => loadGiscus())
-})
+watch(
+  () => route.path,
+  () => {
+    nextTick(() => loadGiscus())
+  }
+)
 
 watch(isDark, () => {
   updateTheme()

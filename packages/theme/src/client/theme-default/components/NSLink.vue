@@ -31,3 +31,9 @@ const isExternal = computed(() => (props.href && EXTERNAL_URL_RE.test(props.href
     <slot />
   </component>
 </template>
+
+<style scoped>
+.NSLink.ns-external-link-icon {
+  align-items: center;
+}
+</style>

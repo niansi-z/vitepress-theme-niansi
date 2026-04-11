@@ -38,11 +38,7 @@ onBeforeUnmount(() => {
 <template>
   <div :class="['NSTocBar', { visible: isVisible }]" @click="showBox = true">
     <div class="title" aria-hidden="true">{{ post?.title ?? '' }}</div>
-    <button
-      aria-label="Open table of contents"
-      :aria-expanded="showBox"
-      aria-controls="toc-list"
-    >
+    <button aria-label="Open table of contents" :aria-expanded="showBox" aria-controls="toc-list">
       <NSTopBarMenu class="icon" />
     </button>
     <NSTocBarBox v-if="showBox" @close="showBox = false" :title="post?.title ?? ''" />

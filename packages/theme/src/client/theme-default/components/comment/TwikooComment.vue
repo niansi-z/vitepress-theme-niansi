@@ -25,9 +25,12 @@ onMounted(() => {
   initTwikoo()
 })
 
-watch(() => route.path, () => {
-  nextTick(() => initTwikoo())
-})
+watch(
+  () => route.path,
+  () => {
+    nextTick(() => initTwikoo())
+  }
+)
 </script>
 
 <template>

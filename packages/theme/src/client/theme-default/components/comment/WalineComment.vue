@@ -29,9 +29,12 @@ onMounted(() => {
   initWaline()
 })
 
-watch(() => route.path, () => {
-  initWaline()
-})
+watch(
+  () => route.path,
+  () => {
+    initWaline()
+  }
+)
 
 onUnmounted(() => {
   walineInstance?.destroy()
@@ -44,7 +47,7 @@ onUnmounted(() => {
 </template>
 
 <style>
-.waline-comment{
+.waline-comment {
   --waline-theme-color: var(--ns-link-color);
   --waline-active-color: var(--ns-link-hover-color);
   --waline-white: var(--ns-color-white);
