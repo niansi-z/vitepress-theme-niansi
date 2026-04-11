@@ -3,11 +3,14 @@ import { useData } from 'vitepress'
 import { computed } from 'vue'
 import NSSidebarTitle from './NSSidebarTitle.vue'
 import NSSidebarMenu from './NSSidebarMenu.vue'
+import NSSidebarDocs from './NSSidebarDocs.vue'
 import NSSidebarBottom from './NSSidebarBottom.vue'
 import { useSidebar } from '../composables/useSidebar'
+import { useLayout } from '../composables/layout'
 
 const { theme } = useData()
 const { isSidebarOpen, closeSidebar } = useSidebar()
+const { isHome } = useLayout()
 
 const sidebarStyle = computed(() => {
   const image = theme.value.sidebarBgImage
@@ -34,7 +37,8 @@ const sidebarStyle = computed(() => {
   >
     <NSSidebarTitle />
     <slot name="sidebar-menu-before" />
-    <NSSidebarMenu />
+    <NSSidebarMenu v-if="isHome" />
+    <NSSidebarDocs v-else />
     <slot name="sidebar-menu-after" />
     <NSSidebarBottom />
   </aside>
