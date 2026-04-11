@@ -2,7 +2,6 @@ import { defineConfig } from 'vitepress-theme-niansi'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
 import {type HeadConfig, resolveSiteDataByRoute} from "vitepress";
 
-
 const siteUrl = 'https://theme.niansi.com.cn'
 const ogImage = new URL('/niansi-logo.jpg', siteUrl).href
 
@@ -66,6 +65,16 @@ export default defineConfig({
     },
     search: {
       provider: 'local'
+    },
+
+    commentPlugin: {
+      provider: 'Giscus',
+      options: {
+        repo: 'niansi-z/vitepress-theme-niansi',
+        repoId: 'R_kgDOR2gHJg',
+        category: 'Announcements',
+        categoryId: 'DIC_kwDOR2gHJs4C5vuN'
+      }
     }
   },
 
