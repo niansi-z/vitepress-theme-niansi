@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import type Token from 'markdown-it/lib/token.mjs'
 import type { MarkdownItAsync } from 'markdown-it-async'
-import type { UserConfig } from 'vitepress'
+import type { HeadConfig, UserConfig } from 'vitepress'
 import type { NiansiTheme } from 'vitepress-theme-niansi/theme'
 import markdownItFootnote from 'markdown-it-footnote'
 
@@ -10,6 +10,25 @@ import { virtualTagPagesPlugin } from './plugins/virtualTagPlugin'
 import { virtualCategoriesPlugin } from './plugins/virtualCategoriesPlugin'
 import { virtualArchivesPlugin } from './plugins/virtualArchivesPlugin'
 import { EXTERNAL_URL_RE } from './shared'
+
+export type AdditionalConfig<ThemeConfig = any> = LocaleSpecificConfig<ThemeConfig>
+
+type DeepPartial<T> =
+  T extends Record<string, any>
+    ? T extends Date | RegExp | Function | ReadonlyMap<any, any> | ReadonlySet<any> | ReadonlyArray<any>
+      ? T
+      : { [P in keyof T]?: DeepPartial<T[P]> }
+    : T
+
+export interface LocaleSpecificConfig<ThemeConfig = any> {
+  lang?: string
+  dir?: string
+  title?: string
+  titleTemplate?: string | boolean
+  description?: string
+  head?: HeadConfig[]
+  themeConfig?: DeepPartial<ThemeConfig>
+}
 
 function isObject(v: unknown): v is Record<string, any> {
   return v !== null && typeof v === 'object' && !Array.isArray(v)
@@ -142,4 +161,10 @@ export function defineConfig<ThemeConfig = NiansiTheme.Config>(
     true
   )
   return merged as unknown as UserConfig<ThemeConfig>
+}
+
+export function defineAdditionalConfig<ThemeConfig = NiansiTheme.Config>(
+  config: AdditionalConfig<NoInfer<ThemeConfig>>
+) {
+  return config
 }
