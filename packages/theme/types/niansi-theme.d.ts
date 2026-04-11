@@ -1,13 +1,6 @@
 import type { DefaultTheme } from 'vitepress/theme'
 
-type RemovedConfigKeys =
-  | 'aside'
-  | 'darkModeSwitchLabel'
-  | 'carbonAds'
-  | 'editLink'
-  | 'lastUpdated'
-  | 'sidebarMenuLabel'
-  | 'langMenuLabel'
+type RemovedConfigKeys = 'aside' | 'darkModeSwitchLabel' | 'carbonAds' | 'editLink' | 'lastUpdated' | 'sidebarMenuLabel'
 
 export namespace NiansiTheme {
   export interface Config extends Omit<DefaultTheme.Config, RemovedConfigKeys> {

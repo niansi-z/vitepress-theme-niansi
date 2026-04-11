@@ -4,6 +4,7 @@ import { computed, inject, nextTick, onMounted, ref, watchPostEffect } from 'vue
 import type { NiansiTheme } from 'vitepress-theme-niansi/theme'
 import NSDarkIcon from './icons/NSDarkIcon.vue'
 import NSLightIcon from './icons/NSLightIcon.vue'
+import NSTranslations from './NSTranslations.vue'
 
 const { theme, isDark, site } = useData()
 const root = ref<HTMLElement>()
@@ -83,6 +84,8 @@ onMounted(async () => {
         <NSDarkIcon v-if="isDark" />
         <NSLightIcon v-else />
       </button>
+
+      <NSTranslations />
 
       <a
         v-for="item in socialLinks"
