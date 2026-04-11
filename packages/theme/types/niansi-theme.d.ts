@@ -1,7 +1,6 @@
 import type { DefaultTheme } from 'vitepress/theme'
 
 type RemovedConfigKeys =
-  | 'sidebar'
   | 'aside'
   | 'darkModeSwitchLabel'
   | 'carbonAds'
@@ -44,12 +43,14 @@ export namespace NiansiTheme {
 
   export type NavItemWithChildren = DefaultTheme.NavItemWithChildren
 
+  export type SidebarItem = DefaultTheme.SidebarItem
+
   export type SocialLink = DefaultTheme.SocialLink
 
   export type OutlineItem = DefaultTheme.OutlineItem
 
   export type AlgoliaSearchOptions = DefaultTheme.AlgoliaSearchOption
-  
+
   export interface WalineCommentOptions {
     serverURL: string
     [key: string]: any
