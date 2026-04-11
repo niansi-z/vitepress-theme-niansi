@@ -52,15 +52,13 @@ onUnmounted(() => {
       <slot name="doc-header-top" />
       <h1 id="doc-title" class="title">{{ post?.title ?? '' }}</h1>
       <div class="meta" role="note">
-        <template v-if="hasLastUpdated">
-          <span>
-            {{ theme?.postedMeta ?? 'Posted' }} <time :datetime="post?.date?.toString()">{{ getDate(post?.date) }}</time>
-          </span>
-            <span>
-            {{ theme?.lastUpdatedText ?? 'Updated' }}
-            <time :datetime="post?.lastUpdated?.toString()">{{ getDate(post?.lastUpdated) }}</time>
-          </span>
-        </template>
+        <span v-if="post?.date">
+          {{ theme?.postedMeta ?? 'Posted' }} <time :datetime="post?.date?.toString()">{{ getDate(post?.date) }}</time>
+        </span>
+        <span v-if="hasLastUpdated">
+          {{ theme?.lastUpdatedText ?? 'Updated' }}
+          <time :datetime="post?.lastUpdated?.toString()">{{ getDate(post?.lastUpdated) }}</time>
+        </span>
         <div class="info">
           <span v-if="post?.author">
             {{ theme?.authorMeta ?? 'By' }} <em>{{ post?.author }}</em>

@@ -65,6 +65,8 @@ const config: SiteConfig = (globalThis as any).VITEPRESS_CONFIG
 
 const { themeConfig } = config.userConfig
 
+const enableLastUpdated = config.userConfig.lastUpdated !== false
+
 // declare const data: Data
 // export { data }
 export const data: Data = []
@@ -216,9 +218,11 @@ export default defineLoader({
       const author = frontmatter.author || themeConfig?.author
 
       const createdAtByGit = getGitFileCreationTime(markdownFilePath)
-      const lastUpdatedAtByGit = getGitFileLastModifiedTime(markdownFilePath)
+      const lastUpdatedAtByGit = enableLastUpdated ? getGitFileLastModifiedTime(markdownFilePath) : 0
       const resolvedDate = toTimestamp(frontmatter.date, createdAtByGit || fileCreatedAt)
-      const resolvedLastUpdated = toTimestamp(frontmatter.lastUpdated, lastUpdatedAtByGit || fileLastModifiedAt)
+      const resolvedLastUpdated = enableLastUpdated
+        ? toTimestamp(frontmatter.lastUpdated, lastUpdatedAtByGit || fileLastModifiedAt)
+        : 0
 
       const relativeMarkdownPath = normalizePath(path.relative(config.srcDir, markdownFilePath))
       const fallbackTitle = inferTitleFromPath(relativeMarkdownPath)
