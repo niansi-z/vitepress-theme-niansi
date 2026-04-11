@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import { useData } from 'vitepress'
 import { data, type BlogPostData } from './posts.data'
 
 /**
@@ -29,7 +30,39 @@ type PostsSource = readonly BlogPostData[] | (() => readonly BlogPostData[])
  * - 上一篇/下一篇检索
  */
 export function usePosts(sourcePosts: PostsSource = data) {
-  const posts = computed<BlogPostData[]>(() => [...resolvePostsSource(sourcePosts)])
+  const { site, localeIndex } = useData()
+  const posts = computed<BlogPostData[]>(() => {
+    const all = [...resolvePostsSource(sourcePosts)]
+    const locales = site.value.locales
+    const currentLocale = localeIndex.value
+    if (!locales || !currentLocale) return all
+    // 获取所有非 root 的语言前缀
+    const localeKeys = Object.keys(locales).filter(k => k !== 'root')
+    // 当前语言的 link 前缀
+    const currentPrefix = locales[currentLocale]?.link || (currentLocale === 'root' ? '/' : `/${currentLocale}/`)
+    // root 语言时，排除所有其他语言前缀的文章
+    let filtered: BlogPostData[] = []
+    if (currentLocale === 'root') {
+      filtered = all.filter(post => {
+        return !localeKeys.some(k => {
+          const prefix = locales[k]?.link || (k === 'root' ? '/' : `/${k}/`)
+          return post.url.startsWith(prefix)
+        })
+      })
+    } else {
+      filtered = all.filter(post => post.url.startsWith(currentPrefix))
+    }
+    // 去重：同名（如 /markdown）只保留当前语言下的那一篇
+    const seen = new Map<string, BlogPostData>()
+    for (const post of filtered) {
+      // 取不带语言前缀的 url 作为 key
+      const key = post.url.replace(/^\/[\w-]+\//, '/').replace(/\/$/, '')
+      if (!seen.has(key)) {
+        seen.set(key, post)
+      }
+    }
+    return Array.from(seen.values())
+  })
 
   const postIndexByUrl = computed(() => {
     const indexMap = new Map<string, number>()

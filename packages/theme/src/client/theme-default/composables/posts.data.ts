@@ -159,13 +159,27 @@ function inferTitleFromPath(relativeMarkdownPath: string): string {
 
 /**
  * 基于文档相对路径生成站点内文章 URL。
+ * 多语言兼容：root 语言下的内容去除目录前缀，其他语言保留前缀。
  */
 function createPostUrl(relativeMarkdownPath: string): string {
-  const normalizedUrlPath = relativeMarkdownPath
+  // 获取 VitePress locales 配置
+  const locales = (config.userConfig.locales || {}) as Record<string, { label?: string; lang?: string; link?: string }>
+  // root 语言目录（如 zh）
+  const rootKey = 'root'
+  // 非 root 的所有 key
+  const nonRootKeys = Object.keys(locales).filter(k => k !== rootKey)
+  let normalizedUrlPath = relativeMarkdownPath
     .replace(/(^|\/)index\.md$/, '$1')
     .replace(/\.md$/, config.cleanUrls ? '' : '.html')
-
-  return '/' + normalizedUrlPath
+  // 如果是非 root 语言目录下的内容，保留前缀，否则去掉
+  for (const langKey of nonRootKeys) {
+    if (normalizedUrlPath.startsWith(`${langKey}/`)) {
+      // 非 root 语言，保留前缀
+      return '/' + normalizedUrlPath
+    }
+  }
+  // root 语言目录下的内容，去掉前缀
+  return '/' + normalizedUrlPath.replace(/^([\w-]+)\//, '')
 }
 
 export default defineLoader({
