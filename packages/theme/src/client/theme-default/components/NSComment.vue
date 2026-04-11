@@ -6,7 +6,8 @@ const { theme } = useData()
 
 const commentComponents: Record<string, ReturnType<typeof defineAsyncComponent>> = {
   Waline: defineAsyncComponent(() => import('./comment/WalineComment.vue')),
-  Giscus: defineAsyncComponent(() => import('./comment/GiscusComment.vue'))
+  Giscus: defineAsyncComponent(() => import('./comment/GiscusComment.vue')),
+  Twikoo: defineAsyncComponent(() => import('./comment/TwikooComment.vue'))
 }
 </script>
 

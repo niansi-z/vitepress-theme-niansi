@@ -63,7 +63,13 @@ export namespace NiansiTheme {
     [key: string]: any
   }
 
+  export interface TwikooCommentOptions {
+    envId: string
+    [key: string]: any
+  }
+
   export type CommentPlugin =
     | { provider: 'Waline'; options: WalineCommentOptions }
     | { provider: 'Giscus'; options: GiscusCommentOptions }
+    | { provider: 'Twikoo'; options: TwikooCommentOptions }
 }

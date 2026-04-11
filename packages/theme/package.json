@@ -114,7 +114,8 @@
     "@docsearch/js": "^4",
     "@docsearch/sidepanel-js": "^4",
     "@waline/client": "^3",
-    "markdown-it-mathjax3": "^4"
+    "markdown-it-mathjax3": "^4",
+    "twikoo": "^1"
   },
   "peerDependenciesMeta": {
     "@docsearch/css": {
@@ -130,6 +131,9 @@
       "optional": true
     },
     "markdown-it-mathjax3": {
+      "optional": true
+    },
+    "twikoo": {
       "optional": true
     }
   },

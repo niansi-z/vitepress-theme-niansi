@@ -25,3 +25,7 @@ declare module '@waline/client' {
 }
 
 declare module '@waline/client/style' {}
+
+declare module 'twikoo' {
+  export function init(options: Record<string, any>): void
+}
