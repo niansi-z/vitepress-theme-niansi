@@ -59,6 +59,7 @@ const target = computed(() => (typeof theme.value.logoLink === 'string' ? undefi
 }
 
 .site-desc {
+  padding: 0 0.75rem;
   text-align: center;
   font-style: italic;
   color: var(--ns-site-subtitle-color);
