@@ -9,3 +9,14 @@ html:not(.dark) .shiki span {
   text-decoration: var(--shiki-light-text-decoration, inherit);
   font-weight: var(--shiki-light-font-weight, inherit);
 }
+
+.vp-code-block-title .vp-code-block-title-bar {
+  position: relative;
+  display: flex;
+  padding: 0 0.75rem;
+  border-radius: 10px 10px 0 0;
+  background-color: var(--ns-language-bg);
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-shadow: var(--ns-language-border-color) 0 0 0 1px;
+}
