@@ -197,6 +197,10 @@
   border-radius: 10px;
 }
 
+.ns-doc .custom-block .vp-code-group div[class*='language-'] {
+  margin: 0 !important;
+}
+
 /**
  * Code
  * -------------------------------------------------------------------------- */
