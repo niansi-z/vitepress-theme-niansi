@@ -4,6 +4,7 @@ type RemovedConfigKeys = 'aside' | 'darkModeSwitchLabel' | 'carbonAds' | 'editLi
 
 export namespace NiansiTheme {
   export interface Config extends Omit<DefaultTheme.Config, RemovedConfigKeys> {
+    author?: string
     sidebarBgImage?: string
     tagPath?: string
     categoryPath?: string
