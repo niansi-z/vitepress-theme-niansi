@@ -11,6 +11,10 @@ import { normalizeLink } from '../support/utils'
 const { page, theme } = useData()
 const { currentLang } = useLangs()
 
+const link = computed(() =>
+  typeof theme.value.logoLink === 'string' ? theme.value.logoLink : theme.value.logoLink?.link
+)
+
 const sidebarItems = computed<NiansiTheme.SidebarItem[]>(() => {
   const sidebar = theme.value.sidebar
   if (!sidebar) return []
@@ -45,7 +49,7 @@ provide('hasActiveLink', hasActiveLink)
 
 <template>
   <nav class="NSSidebarDocs" role="navigation" aria-label="Document navigation">
-    <NSLink :href="normalizeLink(currentLang.link)" class="back-home">
+    <NSLink :href="link ?? normalizeLink(currentLang.link)" class="back-home">
       <span class="nsi-arrow-left back-home-icon"></span>
       <span>{{ theme.hamburgerHome || 'Home' }}</span>
     </NSLink>
