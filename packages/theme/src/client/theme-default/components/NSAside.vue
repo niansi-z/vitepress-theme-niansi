@@ -14,7 +14,7 @@ const props = defineProps<{
 }>()
 
 const { isHome, isPage, headers } = useLayout()
-const { theme } = useData()
+const { theme, localeIndex } = useData()
 
 const { posts } = usePosts()
 
@@ -25,6 +25,12 @@ const recentPosts = computed(() => posts.value.slice(0, 5))
 const hotTags = computed(() => (props.tagGroups ?? []).slice(0, 10))
 
 const container = ref()
+
+const getTagUrl = (tagName: string) => {
+  const localePrefix = localeIndex.value === 'root' ? '' : `/${localeIndex.value}`
+  const basePath = theme?.value?.tagPath ?? '/tags'
+  return `${localePrefix}${basePath}/${encodeURIComponent(tagName)}`
+}
 
 useActiveAnchor(container)
 </script>
@@ -48,11 +54,7 @@ useActiveAnchor(container)
       <h2 class="panel-heading">{{ theme?.trendingTags ?? 'Trending Tags' }}</h2>
       <div class="panel-mian" role="navigation" aria-label="Trending tags">
         <template v-for="tag in hotTags" :key="JSON.stringify(tag)">
-          <NSLink
-            class="tag"
-            :href="`${theme?.tagPath ?? '/tags'}/${encodeURIComponent(tag.name)}`"
-            :aria-label="`Tag: ${tag.name}`"
-          >
+          <NSLink class="tag" :href="getTagUrl(tag.name)" :aria-label="`Tag: ${tag.name}`">
             {{ tag.name }}
           </NSLink>
         </template>

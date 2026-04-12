@@ -167,7 +167,7 @@ function createPostUrl(relativeMarkdownPath: string): string {
   // root 语言目录（如 zh）
   const rootKey = 'root'
   // 非 root 的所有 key
-  const nonRootKeys = Object.keys(locales).filter(k => k !== rootKey)
+  const nonRootKeys = Object.keys(locales).filter((k) => k !== rootKey)
   let normalizedUrlPath = relativeMarkdownPath
     .replace(/(^|\/)index\.md$/, '$1')
     .replace(/\.md$/, config.cleanUrls ? '' : '.html')

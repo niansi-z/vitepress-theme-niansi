@@ -9,7 +9,19 @@ defineProps<{
   post: BlogPostData | undefined
 }>()
 
-const { theme } = useData()
+const { theme, localeIndex } = useData()
+
+const getTagUrl = (tagName: string) => {
+  const localePrefix = localeIndex.value === 'root' ? '' : `/${localeIndex.value}`
+  const basePath = theme?.value?.tagPath ?? '/tags'
+  return `${localePrefix}${basePath}/${encodeURIComponent(tagName)}`
+}
+
+const getCategoryUrl = (categoriesName: string) => {
+  const localePrefix = localeIndex.value === 'root' ? '' : `/${localeIndex.value}`
+  const basePath = theme?.value?.tagPath ?? '/categories'
+  return `${localePrefix}${basePath}/${encodeURIComponent(categoriesName)}`
+}
 </script>
 
 <template>
@@ -18,11 +30,7 @@ const { theme } = useData()
     <div class="meta" v-if="post?.tags?.length" role="list" aria-label="Tags">
       <NSFolder class="icon" aria-hidden="true" />
       <template v-for="tag in post?.tags">
-        <NSLink
-          class="tail-link"
-          :href="`${theme?.tagPath ?? '/tags'}/${encodeURIComponent(tag)}`"
-          :aria-label="`Tag: ${tag}`"
-        >
+        <NSLink class="tail-link" :href="getTagUrl(tag)" :aria-label="`Tag: ${tag}`">
           {{ tag }}
         </NSLink>
       </template>
@@ -30,11 +38,7 @@ const { theme } = useData()
     <div class="tag" v-if="post?.categories?.length" role="list" aria-label="Categories">
       <NSTags class="icon" aria-hidden="true" />
       <template v-for="category in post?.categories">
-        <NSLink
-          class="tail-link"
-          :href="`${theme?.categoryPath ?? '/categories'}/${encodeURIComponent(category)}`"
-          :aria-label="`Category: ${category}`"
-        >
+        <NSLink class="tail-link" :href="getCategoryUrl(category)" :aria-label="`Category: ${category}`">
           {{ category }}
         </NSLink>
       </template>

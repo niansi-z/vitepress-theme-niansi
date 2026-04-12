@@ -3,15 +3,21 @@ import { useData } from 'vitepress'
 import NSLink from '../NSLink.vue'
 import { usePosts } from '../../composables/usePosts'
 
-const { theme } = useData()
+const { theme, localeIndex } = useData()
 const { tagGroups } = usePosts()
+
+const getTagUrl = (tagName: string) => {
+  const localePrefix = localeIndex.value === 'root' ? '' : `/${localeIndex.value}`
+  const basePath = theme?.value?.tagPath ?? '/tags'
+  return `${localePrefix}${basePath}/${encodeURIComponent(tagName)}`
+}
 </script>
 
 <template>
   <div class="NSTags">
     <template v-for="tag in tagGroups" :key="JSON.stringify(tag)">
       <div>
-        <NSLink class="tag" :href="`${theme?.tagPath ?? '/tags'}/${encodeURIComponent(tag.name)}`">
+        <NSLink class="tag" :href="getTagUrl(tag.name)">
           {{ tag.name }}
           <span class="text-muted">{{ tag.count }}</span>
         </NSLink>

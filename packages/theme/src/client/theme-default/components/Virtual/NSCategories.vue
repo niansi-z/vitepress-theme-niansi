@@ -5,7 +5,13 @@ import NSFolderClose from '../icons/NSFolderClose.vue'
 import NSLink from '../NSLink.vue'
 
 const { categoryGroups } = usePosts()
-const { theme } = useData()
+const { theme, localeIndex } = useData()
+
+const getCategoryUrl = (categoriesName: string) => {
+  const localePrefix = localeIndex.value === 'root' ? '' : `/${localeIndex.value}`
+  const basePath = theme?.value?.tagPath ?? '/categories'
+  return `${localePrefix}${basePath}/${encodeURIComponent(categoriesName)}`
+}
 </script>
 
 <template>
@@ -13,7 +19,7 @@ const { theme } = useData()
     <template v-for="category in categoryGroups" :key="JSON.stringify(category)">
       <div class="card">
         <NSFolderClose class="icon" />
-        <NSLink class="category" :href="`${theme.categoryPath ?? '/categories/'}/${encodeURIComponent(category.name)}`">
+        <NSLink class="category" :href="getCategoryUrl(category.name)">
           {{ category.name }}
         </NSLink>
         <span class="text-muted">{{ category.count }} {{ theme?.categoriesMeta ?? 'post' }}</span>
