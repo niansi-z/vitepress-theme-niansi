@@ -8,12 +8,12 @@ import * as path from 'node:path'
 import * as fs from 'node:fs'
 
 export function virtualTagPagesPlugin(): Plugin {
-  let tagIndex = 'tags/index.md'
-  let tagPage = 'tags/[tags].md'
-  // list of concrete tag slugs we generated
+  // 存储所有语言的虚拟页面路径
+  let tagIndexes: string[] = []
   let generatedTagSlugs: string[] = []
-  // map slug -> original tag value
   const slugToTag = new Map<string, string>()
+  // 存储标签基础目录（不带语言前缀）
+  let baseTagDir = 'tags'
 
   return {
     name: 'vitepress:virtual-tag-pages',
@@ -21,25 +21,23 @@ export function virtualTagPagesPlugin(): Plugin {
     config(config) {
       const siteConfig = (config as any).vitepress as SiteConfig | undefined
 
-      // if no site config (we are building the theme package itself), skip
       if (!siteConfig || !siteConfig.srcDir || !siteConfig.site) return
 
       const themeConfig = siteConfig.site.themeConfig as NiansiTheme.Config
-
       const tagPath = themeConfig?.tagPath ?? '/tags'
+      // 清洗基础标签目录
+      baseTagDir = tagPath.replace(/^\//, '').replace(/\/$/, '')
 
-      const tagDir = tagPath.replace(/^\//, '').replace(/\/$/, '')
-      tagIndex = tagDir + '/index.md'
-      tagPage = tagDir + '/[tags].md'
-      void tagPage
-
-      // ensure pages array exists
+      const srcDir = siteConfig.srcDir || process.cwd()
       siteConfig.pages = siteConfig.pages || []
 
-      // scan site's srcDir for markdown and collect tags
-      const srcDir = siteConfig.srcDir || process.cwd()
-      const tagsSet = new Set<string>()
+      // 重置所有存储变量
+      tagIndexes = []
+      generatedTagSlugs = []
+      slugToTag.clear()
 
+      // 1. 扫描所有文档，提取全局标签（全语言共用标签集合）
+      const tagsSet = new Set<string>()
       function walk(dir: string) {
         try {
           for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -52,7 +50,6 @@ export function virtualTagPagesPlugin(): Plugin {
                 const m = content.match(/^---\r?\n([\s\S]*?)\r?\n---/)
                 if (m) {
                   const fm = m[1]
-                  // parse simple frontmatter tags formats
                   const inlineArr = fm.match(/^\s*tags\s*:\s*\[([^\]]+)\]/m)
                   if (inlineArr) {
                     inlineArr[1].split(',').forEach((s) => {
@@ -83,32 +80,47 @@ export function virtualTagPagesPlugin(): Plugin {
                     }
                   }
                 }
-              } catch (e) {
-                // ignore read errors
-              }
+              } catch (e) {}
             }
           }
-        } catch (e) {
-          // ignore
-        }
+        } catch (e) {}
       }
-
       walk(srcDir)
 
-      // register tag index
-      if (!siteConfig.pages.includes(tagIndex)) siteConfig.pages.push(tagIndex)
-
-      // register a concrete page for each tag
-      generatedTagSlugs = []
-      slugToTag.clear()
+      // 2. 处理【默认根语言】标签页面
+      const rootTagIndex = `${baseTagDir}/index.md`
+      tagIndexes.push(rootTagIndex)
+      if (!siteConfig.pages.includes(rootTagIndex)) {
+        siteConfig.pages.push(rootTagIndex)
+      }
+      // 生成根语言标签详情页
       for (const tag of Array.from(tagsSet)) {
         const slug = String(tag).replace(/[\/\\]/g, '-')
-        const file = `${tagDir}/${slug}.md`
+        const file = `${baseTagDir}/${slug}.md`
         if (!siteConfig.pages.includes(file)) siteConfig.pages.push(file)
         generatedTagSlugs.push(slug)
         slugToTag.set(slug, tag)
       }
 
+      // 3. 处理【多语言 locales】标签页面（核心改造点）
+      const locales = siteConfig.site.locales || {}
+      for (const key of Object.keys(locales)) {
+        if (key === 'root') continue
+        // 生成语言前缀的标签路径：zh/tags/index.md
+        const localeTagIndex = `${key}/${baseTagDir}/index.md`
+        tagIndexes.push(localeTagIndex)
+        if (!siteConfig.pages.includes(localeTagIndex)) {
+          siteConfig.pages.push(localeTagIndex)
+        }
+        // 生成当前语言的标签详情页
+        for (const tag of Array.from(tagsSet)) {
+          const slug = String(tag).replace(/[\/\\]/g, '-')
+          const file = `${key}/${baseTagDir}/${slug}.md`
+          if (!siteConfig.pages.includes(file)) siteConfig.pages.push(file)
+        }
+      }
+
+      // 4. 构建 rollup input 入口
       const input: Record<string, string> = Object.fromEntries(
         (siteConfig.pages || []).map((file) => [
           (siteConfig.rewrites?.map?.[file] ?? file).replace(/[\/\\]/g, '_'),
@@ -121,15 +133,25 @@ export function virtualTagPagesPlugin(): Plugin {
       }
     },
 
+    // 适配多语言路径解析
     resolveId(id) {
-      if (id.endsWith(tagIndex)) return id
+      // 匹配所有语言的标签首页
+      if (tagIndexes.some((p) => id.endsWith(p))) {
+        return id
+      }
+      // 匹配所有语言的标签详情页
       for (const slug of generatedTagSlugs) {
-        if (id.endsWith(`${tagIndex.replace(/index\.md$/, '')}${slug}.md`)) return id
+        if (tagIndexes.some((indexPath) => id.endsWith(`${indexPath.replace(/index\.md$/, '')}${slug}.md`))) {
+          return id
+        }
       }
     },
 
+    // 适配多语言页面加载
     load(id) {
-      if (id.endsWith(tagIndex)) {
+      // 加载标签列表页（支持所有语言）
+      const matchedIndex = tagIndexes.find((p) => id.endsWith(p))
+      if (matchedIndex) {
         return (
           '---\n' +
           'title: 标签\n' +
@@ -143,12 +165,12 @@ export function virtualTagPagesPlugin(): Plugin {
         )
       }
 
+      // 加载标签详情页（支持所有语言）
       for (const slug of generatedTagSlugs) {
-        const expectedSuffix = `${tagIndex.replace(/index\.md$/, '')}${slug}.md`
-        if (id.endsWith(expectedSuffix)) {
+        const isMatch = tagIndexes.some((indexPath) => id.endsWith(`${indexPath.replace(/index\.md$/, '')}${slug}.md`))
+        if (isMatch) {
           const origTag = slugToTag.get(slug) ?? slug
           const params = { tags: origTag }
-          // prefix with VP params so VitePress populates pageData.params
           return (
             '__VP_PARAMS_START' +
             JSON.stringify(params) +
@@ -158,11 +180,9 @@ export function virtualTagPagesPlugin(): Plugin {
             '\n' +
             'layout: page\n' +
             '---\n' +
-            '\n' +
             '<script setup>\n' +
             "import { NSTagPosts } from 'vitepress-theme-niansi/theme'\n" +
             '</script>\n' +
-            '\n' +
             '<NSTagPosts />'
           )
         }

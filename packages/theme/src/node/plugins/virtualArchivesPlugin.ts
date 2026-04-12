@@ -7,7 +7,8 @@ import type { NiansiTheme } from 'vitepress-theme-niansi/theme'
 import * as path from 'node:path'
 
 export function virtualArchivesPlugin(): Plugin {
-  let archivesIndex = 'archives/index.md'
+  // 支持多个虚拟页面
+  let archivesIndexes: string[] = []
 
   return {
     name: 'vitepress:virtual-archives-page',
@@ -15,45 +16,67 @@ export function virtualArchivesPlugin(): Plugin {
     config(config) {
       const siteConfig = (config as any).vitepress as SiteConfig | undefined
 
-      // if no site config (we are building the theme package itself), skip
       if (!siteConfig || !siteConfig.srcDir || !siteConfig.site.themeConfig) return
 
       const themeConfig = siteConfig.site.themeConfig as NiansiTheme.Config
-
       const archivesPath = themeConfig?.archivesPath ?? '/archives'
 
       const archivesDir = archivesPath.replace(/^\//, '').replace(/\/$/, '')
-      archivesIndex = archivesDir + '/index.md'
-
-      // ensure pages array exists
-      siteConfig.pages = siteConfig.pages || []
 
       const srcDir = siteConfig.srcDir
+      siteConfig.pages = siteConfig.pages || []
 
-      // register archives index
-      if (!siteConfig.pages.includes(archivesIndex)) siteConfig.pages.push(archivesIndex)
+      archivesIndexes = []
 
+      // root（默认语言）
+      const rootIndex = `${archivesDir}/index.md`
+      archivesIndexes.push(rootIndex)
+
+      if (!siteConfig.pages.includes(rootIndex)) {
+        siteConfig.pages.push(rootIndex)
+      }
+
+      // 多语言 locales
+      const locales = siteConfig.site.locales || {}
+
+      for (const key of Object.keys(locales)) {
+        if (key === 'root') continue
+
+        const localeIndex = `${key}/${archivesDir}/index.md`
+        archivesIndexes.push(localeIndex)
+
+        if (!siteConfig.pages.includes(localeIndex)) {
+          siteConfig.pages.push(localeIndex)
+        }
+      }
+
+      // 构建 input（必须包含新增页面）
       const input: Record<string, string> = Object.fromEntries(
-        (siteConfig.pages || []).map((file) => [
+        siteConfig.pages.map((file) => [
           (siteConfig.rewrites?.map?.[file] ?? file).replace(/[\/\\]/g, '_'),
           path.resolve(srcDir, file)
         ])
       )
 
       return {
-        build: { rollupOptions: { input } }
+        build: {
+          rollupOptions: { input }
+        }
       }
     },
 
     resolveId(id) {
-      if (id.endsWith(archivesIndex)) return id
+      // 支持多个虚拟路径
+      if (archivesIndexes.some((p) => id.endsWith(p))) {
+        return id
+      }
     },
 
     load(id) {
-      if (id.endsWith(archivesIndex)) {
+      if (archivesIndexes.some((p) => id.endsWith(p))) {
         return (
           '---\n' +
-          'title: 归档\n' +
+          `title: 归档\n` +
           'layout: page\n' +
           '---\n' +
           '<script setup>\n' +
