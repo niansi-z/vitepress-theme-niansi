@@ -48,7 +48,7 @@ onUnmounted(() => {
 <template>
   <div class="NSDoc" role="article" :aria-labelledby="'doc-title'">
     <slot name="doc-top" />
-    <header>
+    <header class="doc-header">
       <slot name="doc-header-top" />
       <h1 id="doc-title" class="title">{{ post?.title ?? '' }}</h1>
       <div class="meta" role="note">
@@ -88,6 +88,11 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.doc-header {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ns-border-color);
+}
+
 .title {
   font-size: 2rem;
   color: var(--ns-heading-color);
