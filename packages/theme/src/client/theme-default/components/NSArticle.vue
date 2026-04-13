@@ -34,7 +34,7 @@ function formatDate(timestamp: number): string {
     <NSLink class="content" :href="post.url">
       <div class="main">
         <h2 class="title">
-          {{ post.title }}
+          <span>{{ post.title }}</span>
         </h2>
 
         <div v-if="post.excerpt" class="excerpt ns-doc" v-html="post.excerpt" />
@@ -78,22 +78,8 @@ function formatDate(timestamp: number): string {
 }
 
 .content:hover {
-  transition: background-color 0.35s ease-in-out;
-}
-
-.content:before {
-  content: '';
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: var(--ns-card-hover-bg);
-  border-radius: 10px;
-  opacity: 0;
-  transition: opacity 0.35s ease-in-out;
-}
-
-.content:hover:before {
-  opacity: 0.3;
+  box-shadow: var(--ns-card-shadow-hover);
+  transition: all 0.35s ease-in-out;
 }
 
 .main {
@@ -105,6 +91,7 @@ function formatDate(timestamp: number): string {
 }
 
 .title {
+  position: relative;
   display: flex;
   align-content: center;
   margin-top: 0.5rem;
@@ -118,6 +105,28 @@ function formatDate(timestamp: number): string {
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+.title > span {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.title > span:after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--ns-link-color);
+  visibility: hidden;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+}
+
+.content:hover .title > span:after {
+  visibility: visible;
+  transform: scaleX(1);
 }
 
 .excerpt {

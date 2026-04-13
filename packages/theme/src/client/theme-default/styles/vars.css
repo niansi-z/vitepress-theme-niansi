@@ -242,14 +242,16 @@
 :root {
   --ns-card-bg: var(--ns-bg);
   --ns-card-hover-bg: #e2e2e2;
-  --ns-card-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.05);
+  --ns-card-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1);
+  --ns-card-shadow-hover: 0 2px 6px 2px rgba(0, 0, 0, 0.1);
   --ns-card-cap-bg: rgba(33, 37, 41, 0.03);
 }
 
 .dark {
   --ns-card-bg: #1e1e1e;
   --ns-card-hover-bg: #464d51;
-  --ns-card-shadow: rgba(21, 21, 21, 0.72) 0 6px 18px 0, rgba(137, 135, 135, 0.24) 0 0 0 1px;
+  --ns-card-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  --ns-card-shadow-hover: 0 2px 6px 2px rgba(0, 0, 0, 0.3);
   --ns-card-cap-bg: #1e1e1e;
 }
 
