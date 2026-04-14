@@ -1,5 +1,9 @@
 ---
 title: Code Blocks
+categories:
+  - Examples
+tags:
+  - Code Blocks
 ---
 
 ## Basic

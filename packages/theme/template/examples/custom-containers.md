@@ -1,5 +1,9 @@
 ---
 title: Custom Containers
+categories:
+  - Examples
+tags:
+  - Custom Containers
 ---
 
 ::: info

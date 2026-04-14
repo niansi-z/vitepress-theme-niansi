@@ -1,5 +1,9 @@
 ---
 title: Getting Started
+categories:
+  - Examples
+tags:
+  - Getting Started
 ---
 
 ## Quick Start
