@@ -1,9 +1,14 @@
-# VitePress-Theme-Niansi :honeybee:
+<h1 align="center">VitePress Theme Niansi</h1>  
 
-<h4 align="center">A VitePress theme with tons of features</h4>
+<p align="center">一个基于 VitePress 的博客主题，提供丰富的功能和美观的界面设计。</p>
 
 <p align="center">
+  <a href="https://theme.niansi.com.cn">中文文档</a>
+  |
+  <a href="https://theme.niansi.com.cn/en/">English Docs</a>
+</p>
 
+<p align="center">
 <a href="https://blog.niansi.com.cn">
   <img src="https://img.shields.io/badge/Author-%E5%BB%BF%E5%9B%9B-black?style=flat-square" />
 </a>
@@ -22,32 +27,60 @@
 
 </p>
 
-## 在线安装
+## 特性
+
+- **博客支持** - 分类、标签、归档、摘要生成
+- **多语言** - 开箱即用的国际化支持
+- **代码增强** - 行号、行高亮、diff、错误提示
+- **提示容器** - info、tip、warning、danger、details
+- **页面元数据** - 作者、日期、阅读时间
+- **评论功能** - 支持多种评论插件
+- **最小化配置** - 零配置开箱即用
+
+## 安装
 
 ```bash
 pnpm add -D vitepress-theme-niansi vitepress@next
 ```
 
+## 快速开始
+
 ```bash
 pnpm vitepress-theme-niansi init
 ```
 
-## 本地运行
+## 配置示例
 
-项目拉取
+```ts
+import { defineConfig } from 'vitepress-theme-niansi'
+
+export default defineConfig({
+  title: 'My Blog',
+  clearUrls: true,
+
+  themeConfig: {
+    author: 'Your Name',
+    logo: '/logo.svg',
+    tagPath: '/tags/',
+    categoryPath: '/categories/',
+    archivesPath: '/archives/',
+  }
+})
+```
+
+## 本地开发
 
 ```bash
+# 克隆项目
 git clone https://github.com/niansi-z/vitepress-theme-niansi.git
-```
 
-依赖安装
-
-```bash
+# 安装依赖
 pnpm install
-```
 
-运行
-
-```bash
+# 运行主题开发
 pnpm theme:dev
 ```
+
+## License
+
+[MIT](./packages/theme/LICENSE)
