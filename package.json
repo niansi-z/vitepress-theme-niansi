@@ -9,7 +9,6 @@
     "format": "prettier --experimental-cli --write .",
     "format:fail": "prettier --experimental-cli --check .",
     "build:docs": "pnpm --filter docs... run docs:build",
-    "vercel-build": "pnpm --filter vitepress-theme-niansi... run build && pnpm run build:docs",
     "netlify-build": "pnpm --filter vitepress-theme-niansi... run build && pnpm run build:docs"
   },
   "devDependencies": {
