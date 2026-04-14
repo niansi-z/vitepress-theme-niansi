@@ -1,0 +1,61 @@
+.ns-doc .task-list-container {
+  padding-left: 0;
+  padding-inline-start: 0;
+  list-style-position: inside;
+}
+
+.task-list-container .task-list-container {
+  padding-inline-start: 1.5rem;
+}
+
+.task-list-item {
+  list-style: none;
+}
+
+.task-list-item-checkbox {
+  position: relative;
+  vertical-align: text-bottom;
+  height: 1rem;
+  margin-inline-end: 1.5rem;
+  cursor: pointer;
+  appearance: none;
+}
+
+.task-list-item-checkbox::after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 1rem;
+  height: 1rem;
+  padding-inline-start: 0;
+  border: 1px solid var(--ns-border-color);
+  border-radius: 2px;
+  background: var(--ns-color-neutral-5);
+  text-align: center;
+  visibility: visible;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.task-list-item-checkbox:checked::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0.3rem;
+  top: 0.125rem;
+  z-index: 1;
+  width: 0.35rem;
+  height: 0.6rem;
+  border: solid var(--ns-color-white);
+  border-width: 0 0.15rem 0.15rem 0;
+  transition: border-color 0.3s ease;
+  transform: rotate(45deg);
+}
+
+.task-list-item-checkbox:checked::after {
+  content: '';
+  border-color: var(--ns-color-primary-2);
+  background: var(--ns-color-primary-2);
+}

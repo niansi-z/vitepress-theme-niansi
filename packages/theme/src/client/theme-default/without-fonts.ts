@@ -7,6 +7,7 @@ import './styles/components/ns-code.css'
 import './styles/components/ns-code-group.css'
 import './styles/components/ns-doc.css'
 import './styles/components/ns-article.css'
+import './styles/components/tasklist.css'
 
 import type { Theme } from 'vitepress'
 import Layout from './Layout.vue'
