@@ -1,14 +1,12 @@
 import { defineConfig } from 'vitepress-theme-niansi'
 import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
-import {type HeadConfig, resolveSiteDataByRoute} from "vitepress";
+import { type HeadConfig, resolveSiteDataByRoute } from 'vitepress'
 
 const siteUrl = 'https://theme.niansi.com.cn'
 const ogImage = new URL('/niansi-logo.jpg', siteUrl).href
 
 export default defineConfig({
   title: 'Niansi',
-  description: 'Docs powered by vitepress-theme-niansi',
-  lang: 'zh_CN',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/niansi-logo-mini.svg' }],
     ['meta', { name: 'msvalidate.01', content: 'F7BD16A214A903C5374848CEEC35E667' }]
@@ -31,18 +29,17 @@ export default defineConfig({
   sitemap: {
     hostname: siteUrl
   },
+  rewrites: {
+    'zh/:rest*': ':rest*'
+  },
+  locales: {
+    root: { label: '简体中文', lang: 'zh-Hans' },
+    en: { label: 'English', lang: 'en-US' }
+  },
   themeConfig: {
     author: '廿四',
     logo: '/niansi-logo.svg',
     sidebarBgImage: '/bg.png',
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/guide/', activeMatch: '/guide/' },
-      { text: 'Tags', link: '/tags/', activeMatch: '/tags/' },
-      { text: 'Categories', link: '/categories/', activeMatch: '/categories/' },
-      { text: 'Archives', link: '/archives/', activeMatch: '/archives/' },
-      { text: 'About', link: '/about' }
-    ],
     socialLinks: [
       {
         icon: 'github',
@@ -58,10 +55,6 @@ export default defineConfig({
     ],
     outline: {
       level: [2, 4]
-    },
-    footer: {
-      message: `本站采用 <a href="https://vitepress.dev">VitePress</a> 主题 <a href="https://github.com/niansi-z/vitepress-theme-niansi">niansi</a>`,
-      copyright: '© 2024 廿四 保留部分权利。'
     },
     search: {
       provider: 'local'

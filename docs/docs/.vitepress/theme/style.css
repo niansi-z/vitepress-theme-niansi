@@ -1,24 +1,17 @@
-.NSSidebar .site-title {
-  color: #fff !important;
-}
+/**
+ * Home Sidebar
+ * -------------------------------------------------------------------------- */
 
-.NSSidebar .site-desc {
-  color: #fff !important;
-}
-
-.NSSidebar .NSNavBarMenuLink {
-  color: #fff !important;
-}
-
-.NSSidebar .NSSidebarMenu .NSFlyout .button {
-  color: #fff !important;
-}
-
-.NSSidebar .NSSidebarMenuGroup .items .NSMenuLink a {
-  color: #fff !important;
-}
-
-.NSSidebar .NSSidebarAction {
+.NSSidebar .site-title,
+.NSSidebar .site-desc,
+.NSSidebar .NSNavBarMenuLink,
+.NSSidebar .NSSidebarMenu .NSFlyout .button,
+.NSSidebar .NSSidebarMenuGroup .items .NSMenuLink a,
+.NSSidebar .NSSidebarAction,
+.NSSidebar .NSSidebarSocialLink,
+.NSSidebar .NSSidebarSocialLink:hover,
+.NSSidebar .ns-external-link-icon:after,
+.NSSidebar .NSTranslations .NSTranslationsBtn {
   color: #fff !important;
 }
 
@@ -26,10 +19,12 @@
   background-color: #fff !important;
 }
 
-.NSSidebar .NSSidebarSocialLink {
-  color: #fff !important;
-}
+/**
+ * Docs Sidebar
+ * -------------------------------------------------------------------------- */
 
-.NSSidebar .NSSidebarSocialLink:hover {
+.NSSidebarDocs .back-home,
+.NSSidebarDocs .doc-link,
+.NSSidebarDocs .group-title {
   color: #fff !important;
 }
