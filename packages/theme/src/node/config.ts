@@ -1,15 +1,13 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import type Token from 'markdown-it/lib/token.mjs'
 import type { MarkdownItAsync } from 'markdown-it-async'
 import type { HeadConfig, UserConfig } from 'vitepress'
 import type { NiansiTheme } from 'vitepress-theme-niansi/theme'
-import markdownItFootnote from 'markdown-it-footnote'
-
+import type { MarkdownPluginOptions } from '../../types'
+import { applyMarkdownPlugins } from './markdown/markdown'
 import { virtualTagPagesPlugin } from './plugins/virtualTagPlugin'
 import { virtualCategoriesPlugin } from './plugins/virtualCategoriesPlugin'
 import { virtualArchivesPlugin } from './plugins/virtualArchivesPlugin'
-import { EXTERNAL_URL_RE } from './shared'
 
 export type AdditionalConfig<ThemeConfig = any> = LocaleSpecificConfig<ThemeConfig>
 
@@ -111,24 +109,12 @@ export function defineConfig<ThemeConfig = NiansiTheme.Config>(
   // `markdown.config` is a function — mergeConfig would overwrite one with
   // the other, so we compose them manually here.
   const userMdConfig = (config as Record<string, any>).markdown?.config as ((md: MarkdownItAsync) => void) | undefined
+  const userMdPlugins = (config as Record<string, any>).markdown?.plugins as MarkdownPluginOptions | undefined
 
   const themeMarkdown = {
     markdown: {
-      config: (md: MarkdownItAsync) => {
-        md.use(markdownItFootnote)
-
-        const imageRule = md.renderer.rules.image!
-        md.renderer.rules.image = (tokens: Token[], idx: number, options, env, self) => {
-          const token = tokens[idx]
-          let url = token.attrGet('src')
-          if (url && !EXTERNAL_URL_RE.test(url)) {
-            if (!/^\.?\//.test(url)) url = './' + url
-            token.attrSet('src', decodeURIComponent(url))
-          }
-          token.attrSet('loading', 'lazy')
-          token.attrSet('data-fancybox', 'gallery')
-          return imageRule(tokens, idx, options, env, self)
-        }
+      config: async (md: MarkdownItAsync) => {
+        await applyMarkdownPlugins(md, userMdPlugins || {})
 
         // run user's markdown config
         userMdConfig?.(md)
@@ -139,6 +125,9 @@ export function defineConfig<ThemeConfig = NiansiTheme.Config>(
   // remove user's markdown.config to avoid duplicate invocation after merge
   if ((config as Record<string, any>).markdown?.config) {
     delete (config as Record<string, any>).markdown.config
+  }
+  if ((config as Record<string, any>).markdown?.plugins) {
+    delete (config as Record<string, any>).markdown.plugins
   }
 
   // strip vp-icons.css injected by VitePress core
