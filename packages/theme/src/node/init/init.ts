@@ -172,7 +172,7 @@ export function scaffold({
     fs.outputFileSync(targetPath, compiled)
   }
 
-  const filesToScaffold = ['index.md', 'about.md', 'markdown-examples.md', '.vitepress/config.js']
+  const filesToScaffold = ['index.md', 'about.md','examples/code-blocks.md', 'examples/custom-containers.md', 'examples/getting-started.md', '.vitepress/config.js']
 
   if (theme === ScaffoldThemeType.DefaultCustom) {
     filesToScaffold.push('.vitepress/theme/index.js', '.vitepress/theme/style.css')
