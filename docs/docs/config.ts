@@ -8,10 +8,7 @@ export default defineAdditionalConfig({
       { text: '首页', link: '/' },
       { text: '快速上手', link: '/get-started/' },
       { text: '指南', link: '/guide/' },
-      { text: '配置', link: '/config/' },
-      // { text: '分类', link: '/categories/', activeMatch: '/categories/' },
-      // { text: '标签', link: '/tags/', activeMatch: '/tags/' },
-      // { text: '归档', link: '/archives/', activeMatch: '/archives/' }
+      { text: '配置', link: '/config/' }
     ],
 
     sidebar: {

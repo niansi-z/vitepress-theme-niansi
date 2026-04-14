@@ -8,10 +8,7 @@ export default defineAdditionalConfig({
       { text: 'Home', link: '/en' },
       { text: 'Get Started', link: '/en/get-started/' },
       { text: 'Guide', link: '/en/guide/' },
-      { text: 'Config', link: '/en/config/' },
-      // { text: 'Categories', link: '/en/categories/', activeMatch: '/en/categories/' },
-      // { text: 'Tags', link: '/en/tags/', activeMatch: '/en/tags/' },
-      // { text: 'Archives', link: '/en/archives/', activeMatch: '/en/archives/' }
+      { text: 'Config', link: '/en/config/' }
     ],
 
     sidebar: {
