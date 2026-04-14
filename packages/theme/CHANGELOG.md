@@ -1,3 +1,9 @@
+# [1.0.0-alpha.2](https://github.com/niansi-z/vitepress-theme-niansi/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2026-04-14)
+
+### Bug Fixes
+
+- **lockfile:** update pnpm-lock.yaml for peer dependencies ([4463a8e](https://github.com/niansi-z/vitepress-theme-niansi/commit/4463a8e553b0a35dd08123704e2f4e87cfbbabd2))
+
 # [1.0.0-alpha.1](https://github.com/niansi-z/vitepress-theme-niansi/compare/v0.0.12...v1.0.0-alpha.1) (2026-04-14)
 
 ### Bug Fixes
