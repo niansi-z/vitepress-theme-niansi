@@ -19,6 +19,15 @@ export default defineConfig({
   },
   markdown: {
     math: true,
+    plugins: {
+      image: true,
+      footnote: true,
+      tasklist: true,
+      sub: true,
+      sup: true,
+      mark: true,
+      spoiler: true
+    },
     config(md: any) {
       md.use(groupIconMdPlugin)
     }

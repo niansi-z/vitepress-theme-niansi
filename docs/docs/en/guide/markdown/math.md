@@ -35,8 +35,7 @@ $ bun add -D markdown-it-mathjax3
 
 Then enabling via:
 
-```ts
-// .vitepress/config.ts
+```ts [.vitepress/config.ts] {5}
 import { defineConfig } from 'vitepress-theme-niansi'
 
 export default defineConfig({

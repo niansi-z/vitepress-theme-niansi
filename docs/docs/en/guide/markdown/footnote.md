@@ -7,7 +7,29 @@ tags:
   - Footnote
 ---
 
-The project has built-in footnote support, allowing you to add footnotes directly in your Markdown files.
+Let the Markdown file in your VitePress site support footnotes.
+
+## Settings
+
+```ts [.vitepress/config.ts] {6}
+import { defineConfig } from 'vitepress-theme-niansi'
+
+export default defineConfig({
+  markdown: {
+    plugins: {
+      footnote: true
+    }
+  }
+})
+```
+
+## Syntax
+
+- Use `[^Anchor text]` in Markdown to define a footnote
+
+- Use `[^Anchor text]: ...` to describe footnote content
+
+- If there are multiple paragraphs in footnote, the paragraph show be double indented
 
 ## Demo
 

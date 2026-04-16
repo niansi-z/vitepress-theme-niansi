@@ -34,8 +34,14 @@ export default defineAdditionalConfig({
         {
           text: 'Markdown',
           items: [
+            { text: 'Inline Rule', link: '/guide/markdown/inline-rule' },
+            { text: '上下角标', link: '/guide/markdown/sup-sub' },
+            { text: '标记', link: '/guide/markdown/mark' },
+            { text: '剧透', link: '/guide/markdown/spoiler' },
             { text: '数学公式', link: '/guide/markdown/math' },
             { text: '脚注', link: '/guide/markdown/footnote' },
+            { text: '图片', link: '/guide/markdown/image' },
+            { text: '任务列表', link: '/guide/markdown/tasklist' },
             { text: '代码块', link: '/guide/markdown/code' },
             { text: '代码块分组', link: '/guide/markdown/tabs' },
             { text: '提示容器', link: '/guide/markdown/containers' },

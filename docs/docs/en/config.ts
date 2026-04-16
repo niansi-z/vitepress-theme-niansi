@@ -34,8 +34,14 @@ export default defineAdditionalConfig({
         {
           text: 'Markdown',
           items: [
+            { text: 'Inline Rule', link: '/en/guide/markdown/inline-rule' },
+            { text: 'Superscript and Subscript', link: '/en/guide/markdown/sup-sub' },
+            { text: 'Mark', link: '/en/guide/markdown/mark' },
+            { text: 'Spoiler', link: '/en/guide/markdown/spoiler' },
             { text: 'Math', link: '/en/guide/markdown/math' },
             { text: 'Footnote', link: '/en/guide/markdown/footnote' },
+            { text: 'Image', link: '/en/guide/markdown/image' },
+            { text: 'Task List', link: '/en/guide/markdown/tasklist' },
             { text: 'Code Block', link: '/en/guide/markdown/code' },
             { text: 'Code Tabs', link: '/en/guide/markdown/tabs' },
             { text: 'Hint container', link: '/en/guide/markdown/containers' },
