@@ -110,11 +110,12 @@ export function defineConfig<ThemeConfig = NiansiTheme.Config>(
   // the other, so we compose them manually here.
   const userMdConfig = (config as Record<string, any>).markdown?.config as ((md: MarkdownItAsync) => void) | undefined
   const userMdPlugins = (config as Record<string, any>).markdown?.plugins as MarkdownPluginOptions | undefined
+  const userMdImage = (config as Record<string, any>).markdown?.image as { lazyLoading?: boolean } | undefined
 
   const themeMarkdown = {
     markdown: {
       config: async (md: MarkdownItAsync) => {
-        await applyMarkdownPlugins(md, userMdPlugins || {})
+        await applyMarkdownPlugins(md, userMdPlugins || {}, userMdImage)
 
         // run user's markdown config
         userMdConfig?.(md)
