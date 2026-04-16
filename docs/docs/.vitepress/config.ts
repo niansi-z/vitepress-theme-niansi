@@ -9,7 +9,8 @@ export default defineConfig({
   title: 'Niansi',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/niansi-logo-mini.svg' }],
-    ['meta', { name: 'msvalidate.01', content: 'F7BD16A214A903C5374848CEEC35E667' }]
+    ['meta', { name: 'msvalidate.01', content: 'F7BD16A214A903C5374848CEEC35E667' }],
+    ['meta', { name: 'google-site-verification', content: '2pzNraiPSLxl19vRIR_jFzDIHJjIOnTYHcj-MFYxARU' }]
   ],
   vite: {
     server: {
