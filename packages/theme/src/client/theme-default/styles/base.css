@@ -150,13 +150,22 @@
   }
 
   figure {
-    margin: 0;
+    text-align: center;
+  }
+
+  figure img {
+    display: inline-block;
+  }
+
+  figcaption {
+    font-size: 0.7rem;
+    display: block;
+    unicode-bidi: isolate;
   }
 
   img,
   video {
     max-width: 100%;
-    height: auto;
   }
 
   button,
