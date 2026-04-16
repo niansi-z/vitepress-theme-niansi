@@ -16,3 +16,4 @@ temp
 examples-temp
 pnpm-global
 *.timestamp-*.mjs
+.claude
