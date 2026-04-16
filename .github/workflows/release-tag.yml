@@ -9,6 +9,8 @@ jobs:
   release:
     if: github.repository == 'niansi-z/vitepress-theme-niansi'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
