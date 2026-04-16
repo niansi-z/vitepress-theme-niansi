@@ -13,3 +13,7 @@
     max-age=31536000,
     immutable'''
 
+[[headers]]
+  for = "/*.xml"
+  [headers.values]
+    Content-Type = "text/xml; charset=utf-8"
