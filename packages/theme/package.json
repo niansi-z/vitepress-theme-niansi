@@ -4,20 +4,24 @@
   "description": "A VitePress theme with tons of features",
   "type": "module",
   "keywords": [
-    "vitepress",
+    "blog",
     "theme",
+    "vitepress",
+    "vitepress-blog",
     "vitepress-theme",
-    "vue",
-    "markdown",
-    "documentation",
-    "blog"
+    "theme-niansi",
+    "vitepress-theme-niansi"
   ],
   "homepage": "https://theme.niansi.com.cn/",
   "bugs": {
     "url": "https://github.com/niansi-z/vitepress-theme-niansi/issues"
   },
   "repository": "github:niansi-z/vitepress-theme-niansi",
-  "author": "廿四",
+  "author": {
+    "name": "廿四",
+    "email": "zhang_shaodi@163.com",
+    "url": "https://github.com/niansi-z"
+  },
   "license": "MIT",
   "main": "dist/node/index.js",
   "types": "types/index.d.ts",
