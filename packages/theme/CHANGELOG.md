@@ -1,3 +1,17 @@
+# [1.0.0-alpha.3](https://github.com/niansi-z/vitepress-theme-niansi/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2026-04-16)
+
+### Bug Fixes
+
+- **styles:** improve ns-doc styles ([75d16b0](https://github.com/niansi-z/vitepress-theme-niansi/commit/75d16b0a8b12107e69b502604310d63ed16b5196))
+
+### Features
+
+- **image:** add img-size and figure support ([a047cb9](https://github.com/niansi-z/vitepress-theme-niansi/commit/a047cb9312c76fcf07c4e28d9133f3a11da41df8))
+- **markdown:** add inline rule plugins (sub, sup, mark, spoiler) ([baad104](https://github.com/niansi-z/vitepress-theme-niansi/commit/baad10406e38b2c83d272e242751662a3a925bb5))
+- **markdown:** add markdown plugin infrastructure ([a3a2e91](https://github.com/niansi-z/vitepress-theme-niansi/commit/a3a2e9154b88391c5be58af8a795d2ce9852e3a5))
+- **template:** add examples index page and update example files ([7ed6306](https://github.com/niansi-z/vitepress-theme-niansi/commit/7ed63069bd25b82a50e045ada53b71d69ec2c2d0))
+- **types:** add markdown plugins type definitions ([0117081](https://github.com/niansi-z/vitepress-theme-niansi/commit/0117081edf82191839a628c6e3caab3c3c2c6ab7))
+
 # [1.0.0-alpha.2](https://github.com/niansi-z/vitepress-theme-niansi/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2026-04-14)
 
 ### Bug Fixes
