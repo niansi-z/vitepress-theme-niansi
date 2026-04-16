@@ -175,6 +175,7 @@ export function scaffold({
   const filesToScaffold = [
     'index.md',
     'about.md',
+    'examples/index.md',
     'examples/code-blocks.md',
     'examples/custom-containers.md',
     'examples/getting-started.md',
