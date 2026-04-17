@@ -144,10 +144,46 @@ export function defineConfig<ThemeConfig = NiansiTheme.Config>(
     }
   }
 
+  // theme's sitemap config: provide virtual page base paths for exclusion
+  // user's transformItems will be called after theme's base filtering
+  const themeSitemap = {
+    sitemap: {
+      transformItems: (items: { url: string }[]) => {
+        const themeConfig = (config as Record<string, any>)?.themeConfig as NiansiTheme.Config | undefined
+        const tagPath = themeConfig?.tagPath ?? '/tags'
+        const categoryPath = themeConfig?.categoryPath ?? '/categories'
+        const archivesPath = themeConfig?.archivesPath ?? '/archives'
+
+        // normalize paths (remove leading/ending slashes)
+        const normalizePath = (p: string) => p.replace(/^\/|\/$/g, '')
+
+        const tag = normalizePath(tagPath)
+        const category = normalizePath(categoryPath)
+        const archives = normalizePath(archivesPath)
+
+        const isLocale = (s: string) => /^[a-z]{2}(-[A-Z]{2})?$/.test(s)
+
+        return items.filter((item) => {
+          const segments = item.url.split('/').filter(Boolean)
+
+          const hit = [tag, category, archives].some((base) => {
+            // tags/xxx
+            if (segments[0] === base) return true
+
+            // en/tags/xxx
+            return segments.length >= 2 && isLocale(segments[0]) && segments[1] === base
+          })
+
+          return !hit
+        })
+      }
+    }
+  }
+
   // merge both vite and markdown additions into the user config
   const merged = mergeConfig(
     config as Record<string, any>,
-    mergeConfig(themeVite, mergeConfig(themeMarkdown, themeHooks, true), true),
+    mergeConfig(themeVite, mergeConfig(themeMarkdown, mergeConfig(themeHooks, themeSitemap, true), true), true),
     true
   )
   return merged as unknown as UserConfig<ThemeConfig>
