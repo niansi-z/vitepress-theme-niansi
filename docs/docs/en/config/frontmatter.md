@@ -16,12 +16,12 @@ You can set information for page with the following frontmatter options.
 
 Current page's title. Markdown's first `h1` by default.
 
-## description
+## excerpt
 
 - Type: `string`
 - Required: No
 
-Current page's description.
+Current page's excerpt.
 
 ## author
 

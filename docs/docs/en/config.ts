@@ -54,10 +54,10 @@ export default defineAdditionalConfig({
         {
           text: 'Blog',
           items: [
-            { text: 'Blog Intro', link: '/guide/blog/intro' },
-            { text: 'Category and tags', link: '/guide/blog/category-and-tags' },
-            { text: 'Archives', link: '/guide/blog/archives' },
-            { text: 'Blog Page Path', link: '/guide/blog/path' }
+            { text: 'Blog Intro', link: '/en/guide/blog/intro' },
+            { text: 'Category and tags', link: '/en/guide/blog/category-and-tags' },
+            { text: 'Archives', link: '/en/guide/blog/archives' },
+            { text: 'Blog Page Path', link: '/en/guide/blog/path' }
           ]
         }
       ],

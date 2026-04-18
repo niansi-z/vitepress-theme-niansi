@@ -16,12 +16,12 @@ tags:
 
 当前页面的内容标题，默认为 Markdown 文件中的第一个 `h1` 标题。
 
-## description
+## excerpt
 
 - 类型：`string`
 - 必填：否
 
-当前页面内容描述。
+当前页面内容摘要。
 
 ## author
 
