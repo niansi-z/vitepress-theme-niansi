@@ -14,6 +14,7 @@ import type { Theme } from 'vitepress'
 import Layout from './Layout.vue'
 import NotFound from './NotFound.vue'
 import NSBadge from './components/NSBadge.vue'
+import NSPreview from './components/NSPreview.vue'
 
 export { default as NSTags } from './components/Virtual/NSTags.vue'
 export { default as NSTagPosts } from './components/Virtual/NSTagPosts.vue'
@@ -21,12 +22,14 @@ export { default as NSCategories } from './components/Virtual/NSCategories.vue'
 export { default as NSCategoriesPosts } from './components/Virtual/NSCategoriesPosts.vue'
 export { default as NSArchives } from './components/Virtual/NSArchives.vue'
 export { default as NSBadge } from './components/NSBadge.vue'
+export { default as NSPreview } from './components/NSPreview.vue'
 
 const theme: Theme = {
   Layout,
   NotFound,
   enhanceApp: ({ app }: any) => {
     app.component('Badge', NSBadge)
+    app.component('Preview', NSPreview)
   }
 }
 
