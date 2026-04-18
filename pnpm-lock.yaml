@@ -6,19 +6,125 @@ settings:
 
 catalogs:
   build:
+    vite:
+      specifier: ^7.3.1
+      version: 7.3.1
     vitepress:
       specifier: 2.0.0-alpha.17
       version: 2.0.0-alpha.17
   frontend:
+    '@fancyapps/ui':
+      specifier: ^6.1.13
+      version: 6.1.13
+    '@vue/shared':
+      specifier: ^3.5.31
+      version: 3.5.31
+    '@vueuse/core':
+      specifier: ^14.2.1
+      version: 14.2.1
+    '@vueuse/integrations':
+      specifier: ^14.2.1
+      version: 14.2.1
+    focus-trap:
+      specifier: ^8.0.1
+      version: 8.0.1
+    gray-matter:
+      specifier: ^4.0.3
+      version: 4.0.3
+    mark.js:
+      specifier: ^8.11.1
+      version: 8.11.1
+    markdown-it:
+      specifier: ^14.1.1
+      version: 14.1.1
+    markdown-it-async:
+      specifier: ^2.2.0
+      version: 2.2.0
+    markdown-it-container:
+      specifier: ^4.0.0
+      version: 4.0.0
+    markdown-it-footnote:
+      specifier: ^4.0.0
+      version: 4.0.0
     markdown-it-mathjax3:
       specifier: 4.3.2
       version: 4.3.2
-    vitepress-plugin-group-icons:
-      specifier: ^1.7.3
-      version: 1.7.3
+    marked:
+      specifier: ^17.0.4
+      version: 17.0.4
+    minisearch:
+      specifier: ^7.2.0
+      version: 7.2.0
     vue:
       specifier: ^3.5.30
       version: 3.5.30
+  lint:
+    prettier:
+      specifier: ^3.8.1
+      version: 3.8.1
+  prod:
+    punycode:
+      specifier: ^2.3.1
+      version: 2.3.1
+  script:
+    '@clack/prompts':
+      specifier: ^1.1.0
+      version: 1.1.0
+    cheerio:
+      specifier: ^1.2.0
+      version: 1.2.0
+    conventional-changelog:
+      specifier: ^7.2.0
+      version: 7.2.0
+    conventional-changelog-angular:
+      specifier: ^8.3.0
+      version: 8.3.0
+    domhandler:
+      specifier: ^6.0.1
+      version: 6.0.1
+    execa:
+      specifier: ^9.6.1
+      version: 9.6.1
+    fs-extra:
+      specifier: ^11.3.4
+      version: 11.3.4
+    lodash.template:
+      specifier: ^4.5.0
+      version: 4.5.0
+    minimist:
+      specifier: ^1.2.8
+      version: 1.2.8
+    picocolors:
+      specifier: ^1.1.1
+      version: 1.1.1
+    prompts:
+      specifier: ^2.4.2
+      version: 2.4.2
+    semver:
+      specifier: ^7.7.4
+      version: 7.7.4
+  types:
+    '@types/fs-extra':
+      specifier: ^11.0.4
+      version: 11.0.4
+    '@types/lodash.template':
+      specifier: ^4.5.3
+      version: 4.5.3
+    '@types/mark.js':
+      specifier: ^8.11.12
+      version: 8.11.12
+    '@types/markdown-it':
+      specifier: ^14.1.2
+      version: 14.1.2
+    '@types/markdown-it-container':
+      specifier: ^4.0.0
+      version: 4.0.0
+    '@types/markdown-it-footnote':
+      specifier: ^3.0.4
+      version: 3.0.4
+    '@types/minimist':
+      specifier: ^1.2.5
+      version: 1.2.5
 
 importers:
 
@@ -188,6 +294,9 @@ importers:
       '@types/mark.js':
         specifier: catalog:types
         version: 8.11.12
+      '@types/markdown-it-container':
+        specifier: catalog:types
+        version: 4.0.0
       '@types/markdown-it-footnote':
         specifier: catalog:types
         version: 3.0.4
@@ -215,6 +324,9 @@ importers:
       markdown-it-async:
         specifier: catalog:frontend
         version: 2.2.0
+      markdown-it-container:
+        specifier: catalog:frontend
+        version: 4.0.0
       markdown-it-mathjax3:
         specifier: catalog:frontend
         version: 4.3.2
@@ -744,6 +856,9 @@ packages:
 
   '@types/mark.js@8.11.12':
     resolution: {integrity: sha512-244ZnaIBpz4c6xutliAnYVZp6xJlmC569jZqnR3ElO1Y01ooYASSVQEqpd2x0A2UfrgVMs5V9/9tUAdZaDMytQ==}
+
+  '@types/markdown-it-container@4.0.0':
+    resolution: {integrity: sha512-GmD8OECLfzPHv8VyvFRzslqdwXoDBJ2H40fxXFjrarbqvJZSB/BJKZXN5e3k7Mx7GQanSNzTYhzeS3H9o0gAOw==}
 
   '@types/markdown-it-footnote@3.0.4':
     resolution: {integrity: sha512-XJ6n+v+2u+2gmYLSHcxyoNT/YrgrKvHuDJQlykFjuxCQCr86P2/fx1V6/0lcKxv5cSIlCaJ6sUcNS3zDI7I+LA==}
@@ -1441,6 +1556,9 @@ packages:
 
   markdown-it-async@2.2.0:
     resolution: {integrity: sha512-sITME+kf799vMeO/ww/CjH6q+c05f6TLpn6VOmmWCGNqPJzSh+uFgZoMB9s0plNtW6afy63qglNAC3MhrhP/gg==}
+
+  markdown-it-container@4.0.0:
+    resolution: {integrity: sha512-HaNccxUH0l7BNGYbFbjmGpf5aLHAMTinqRZQAEQbMr2cdD3z91Q6kIo1oUn1CQndkT03jat6ckrdRYuwwqLlQw==}
 
   markdown-it-footnote@4.0.0:
     resolution: {integrity: sha512-WYJ7urf+khJYl3DqofQpYfEYkZKbmXmwxQV8c8mO/hGIhgZ1wOe7R4HLFNwqx7TjILbnC98fuyeSsin19JdFcQ==}
@@ -2387,6 +2505,10 @@ snapshots:
     dependencies:
       '@types/jquery': 4.0.0
 
+  '@types/markdown-it-container@4.0.0':
+    dependencies:
+      '@types/markdown-it': 14.1.2
+
   '@types/markdown-it-footnote@3.0.4':
     dependencies:
       '@types/markdown-it': 14.1.2
@@ -3132,6 +3254,8 @@ snapshots:
     dependencies:
       '@types/markdown-it': 14.1.2
       markdown-it: 14.1.1
+
+  markdown-it-container@4.0.0: {}
 
   markdown-it-footnote@4.0.0: {}
 

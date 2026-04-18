@@ -10,8 +10,8 @@
   "devDependencies": {
     "markdown-it-mathjax3": "catalog:frontend",
     "vitepress": "catalog:build",
-    "vitepress-theme-niansi": "workspace:*",
     "vitepress-plugin-group-icons": "catalog:frontend",
+    "vitepress-theme-niansi": "workspace:*",
     "vue": "catalog:frontend"
   },
   "packageManager": "pnpm@10.28.0"

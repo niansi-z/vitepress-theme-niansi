@@ -25,6 +25,7 @@ catalogs:
     mark.js: ^8.11.1
     markdown-it: ^14.1.1
     markdown-it-async: ^2.2.0
+    markdown-it-container: ^4.0.0
     markdown-it-footnote: ^4.0.0
     markdown-it-mathjax3: 4.3.2
     marked: ^17.0.4
@@ -58,6 +59,7 @@ catalogs:
     '@types/lodash.template': ^4.5.3
     '@types/mark.js': ^8.11.12
     '@types/markdown-it': ^14.1.2
+    '@types/markdown-it-container': ^4.0.0
     '@types/markdown-it-footnote': ^3.0.4
     '@types/minimist': ^1.2.5
     '@types/node': ^25.5.0
