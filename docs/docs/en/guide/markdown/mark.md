@@ -29,12 +29,6 @@ Use `== ==` to mark. Please note that there should be a space on both sides.
 
 ## Example
 
-#### Input
-
-```md
+:::preview
 This is ==marked== text.
-```
-
-#### Output
-
-This is ==marked== text.
+:::

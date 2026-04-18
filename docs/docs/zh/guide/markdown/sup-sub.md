@@ -33,19 +33,11 @@ export default defineConfig({
 
 ## 案例
 
-#### 输入
-
-```md
+:::preview
 19^th^
 
 H~2~O
-```
-
-#### 输出
-
-19^th^
-
-H~2~O
+:::
 
 ::: tip 提示
 你可以使用 `\` 来转义 `^` 和 `~`:

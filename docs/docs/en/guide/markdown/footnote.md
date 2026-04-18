@@ -33,16 +33,8 @@ export default defineConfig({
 
 ## Demo
 
-#### Input
-
-```md
+:::preview
 Here’s an example of a footnote[^1].
 
 [^1]: This is the footnote content.
-```
-
-#### Output
-
-Here’s an example of a footnote[^1].
-
-[^1]: This is the footnote content.
+:::

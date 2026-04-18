@@ -29,12 +29,6 @@ Use `!! !!` to mark the spoiler content. Note that there should be a space on bo
 
 ## Example
 
-#### Input
-
-```md
+:::preview
 This is !!spoiler!! text.
-```
-
-#### Output
-
-This is !!spoiler!! text.
+:::

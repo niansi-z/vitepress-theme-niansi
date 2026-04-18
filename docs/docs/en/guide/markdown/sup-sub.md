@@ -32,19 +32,11 @@ export default defineConfig({
 
 ## Example
 
-#### Input
-
-```md
+:::preview
 19^th^
 
 H~2~O
-```
-
-#### Output
-
-19^th^
-
-H~2~O
+:::
 
 ::: tip Tips
 You can use `\` to escape `^` and `~`:

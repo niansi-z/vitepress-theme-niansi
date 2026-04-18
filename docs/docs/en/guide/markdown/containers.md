@@ -11,9 +11,7 @@ The theme adds tip, note, info, warning, danger and detail hint box.
 
 ## Demonstration
 
-#### Input
-
-```md
+::::preview
 ::: info
 Information container
 :::
@@ -33,26 +31,4 @@ Danger container
 ::: details
 Details container
 :::
-```
-
-#### Output
-
-::: info
-Information container
-:::
-
-::: tip
-Tip container
-:::
-
-::: warning
-Warning container
-:::
-
-::: danger
-Danger container
-:::
-
-::: details
-Details container
-:::
+::::

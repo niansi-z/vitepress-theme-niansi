@@ -11,7 +11,7 @@ tags:
 
 ## 使用
 
-```ts [.vitepress/config.ts]
+```ts [.vitepress/config.ts] {6-10}
 import { defineConfig, inlineRule } from 'vitepress-theme-niansi'
 
 export default defineConfig({

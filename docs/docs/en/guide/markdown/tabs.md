@@ -11,9 +11,7 @@ tags:
 
 Use code block groups in Markdown files:
 
-#### Input
-
-````md
+::::preview
 ::: code-group
 
 ```vue [demo.vue]
@@ -31,24 +29,4 @@ export default function App() {
 ```
 
 :::
-````
-
-#### Output
-
-::: code-group
-
-```vue [demo.vue]
-<template>
-  <div>This is a Vue tab.</div>
-</template>
-```
-
-```tsx [demo.tsx]
-import React from 'react';
-
-export default function App() {
-  return <div>This is a React tab.</div>;
-}
-```
-
-:::
+::::

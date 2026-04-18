@@ -11,7 +11,7 @@ Let the Markdown file in your VitePress site support task list.
 
 ## Setting
 
-```ts [.vitepress/config.ts]
+```ts [.vitepress/config.ts] {6}
 import { defineConfig } from 'vitepress-theme-niansi'
 
 export default defineConfig({
@@ -30,16 +30,8 @@ export default defineConfig({
 
 ## Demo
 
-#### Input
-
-```md
+:::preview
 - [ ] Plan A
 - [x] Plan B
 - [X] Plan C
-```
-
-#### Output
-
-- [ ] Plan A
-- [x] Plan B
-- [X] Plan C
+:::

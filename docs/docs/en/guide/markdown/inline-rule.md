@@ -11,7 +11,7 @@ A unified inline syntax factory plugin for creating custom punctuation-based inl
 
 ## Usage
 
-```ts [.vitepress/config.ts]
+```ts [.vitepress/config.ts] {6-10}
 import { defineConfig, inlineRule } from 'vitepress-theme-niansi'
 
 export default defineConfig({

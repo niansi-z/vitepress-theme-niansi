@@ -11,7 +11,7 @@ tags:
 
 ## 设置
 
-```ts [.vitepress/config.ts]
+```ts [.vitepress/config.ts] {6}
 import { defineConfig } from 'vitepress-theme-niansi'
 
 export default defineConfig({
@@ -30,16 +30,8 @@ export default defineConfig({
 
 ## 案例
 
-#### 输入
-
-```md
+:::preview
 - [ ] 计划A
 - [x] 计划B
 - [X] 计划C
-```
-
-#### 输出
-
-- [ ] 计划A
-- [x] 计划B
-- [X] 计划C
+:::

@@ -13,7 +13,7 @@ Adds image size syntax, lazy loading, and figure wrapping support for images in 
 
 :::code-group
 
-```ts [.vitepress/config.ts]
+```ts [.vitepress/config.ts] {6-8,11,13}
 import { defineConfig } from 'vitepress-theme-niansi'
 
 export default defineConfig({
@@ -60,58 +60,36 @@ markdown: {
 
 Use `alt =width x height` syntax to specify dimensions.
 
-#### Input
-
-```md
+:::preview
 ![alt text =200x300](/example.png)
 
 ![alt text =200x](/example.png "title")
 
 ![alt text =x300](/example.png)
-```
-
-#### Output
-
-![alt text =200x300](/example.png)
-
-![alt text =200x](/example.png "title")
-
-![alt text =x300](/example.png)
+:::
 
 ### Figure Wrapping
 
 Standalone images are automatically wrapped in `<figure>` with `<figcaption>`.
 
-#### Input
-
-```md
+:::preview
 ![alt text =200x300](/example.png)
-```
 
-#### Output
-
-```html
 <figure>
   <img src="/example.png" alt="alt text" width="200" height="300" tabindex="0" />
   <figcaption>alt text</figcaption>
 </figure>
-```
+:::
 
 ### Image with Title
 
 Use `![alt](url "title")` syntax — the title becomes the `<figcaption>` content.
 
-#### Input
-
-```md
+:::preview
 ![image description =300x200](/example.png "This is a sample image")
-```
 
-#### Output
-
-```html
 <figure>
   <img src="/example.png" alt="image description" width="300" height="200" tabindex="0" title="This is a sample image" />
   <figcaption>This is a sample image</figcaption>
 </figure>
-```
+:::

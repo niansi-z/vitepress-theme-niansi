@@ -11,26 +11,7 @@ The theme adds GFM alerts support.
 
 ## Demonstration
 
-#### Input
-
-```md
-> [!NOTE]
-> This is note text
-
-> [!TIP]
-> This is tip text
-
-> [!IMPORTANT]
-> This is important text
-
-> [!WARNING]
-> This is warning text
-
-> [!CAUTION]
-> This is caution text
-```
-
-#### Output
+:::preview
 
 > [!NOTE]
 > This is note text
@@ -46,3 +27,5 @@ The theme adds GFM alerts support.
 
 > [!CAUTION]
 > This is caution text
+
+:::

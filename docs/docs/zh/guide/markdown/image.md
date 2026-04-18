@@ -13,7 +13,7 @@ tags:
 
 :::code-group
 
-```ts [.vitepress/config.ts]
+```ts [.vitepress/config.ts] {6-8,11,13}
 import { defineConfig } from 'vitepress-theme-niansi'
 
 export default defineConfig({
@@ -60,58 +60,36 @@ markdown: {
 
 使用 `alt =宽度 x 高度` 语法为图片指定尺寸。
 
-#### 输入
-
-```md
+:::preview
 ![替代文字 =200x300](/example.png)
 
 ![替代文字 =200x](/example.png "标题")
 
 ![替代文字 =x300](/example.png)
-```
-
-#### 输出
-
-![替代文字 =200x300](/example.png)
-
-![替代文字 =200x](/example.png "标题")
-
-![替代文字 =x300](/example.png)
+:::
 
 ### Figure 包裹
 
 独立的图片会自动转换为 `<figure>` 元素，`alt` 或 `title` 作为 `<figcaption>` 内容。
 
-#### 输入
-
-```md
+:::preview
 ![替代文字 =200x300](/example.png)
-```
 
-#### 输出
-
-```html
 <figure>
   <img src="/example.png" alt="替代文字" width="200" height="300" tabindex="0" />
   <figcaption>替代文字</figcaption>
 </figure>
-```
+:::
 
 ### 带标题的图片
 
 使用 `![alt](url "标题")` 语法，标题会作为 `<figcaption>` 内容。
 
-#### 输入
-
-```md
+:::preview
 ![图片说明 =300x200](/example.png "这是一张示例图片")
-```
 
-#### 输出
-
-```html
 <figure>
   <img src="/example.png" alt="图片说明" width="300" height="200" tabindex="0" title="这是一张示例图片" />
   <figcaption>这是一张示例图片</figcaption>
 </figure>
-```
+:::
