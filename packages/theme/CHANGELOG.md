@@ -1,3 +1,18 @@
+# [1.0.0-alpha.4](https://github.com/niansi-z/vitepress-theme-niansi/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2026-04-18)
+
+### Bug Fixes
+
+- **docs:** correct blog nav links and frontmatter field documentation ([4923284](https://github.com/niansi-z/vitepress-theme-niansi/commit/4923284a45c080af33555c470c4362bc1646809c))
+
+### Features
+
+- **docs:** add preview component docs, faq, and update navigation ([ced37bc](https://github.com/niansi-z/vitepress-theme-niansi/commit/ced37bc3475f9e0a2a0b15d8429c8efecf19d0c7))
+- **theme:** add preview component styles and toggle icon ([9b4482b](https://github.com/niansi-z/vitepress-theme-niansi/commit/9b4482bc5bbb7e0050ebbeac94b38f810c3a2060))
+- **theme:** add preview component styles and toggle icon ([7f636a5](https://github.com/niansi-z/vitepress-theme-niansi/commit/7f636a562e5f871a095e656a6b3622c6e9947e62))
+- **theme:** add preview markdown plugin for demo blocks ([8709d9e](https://github.com/niansi-z/vitepress-theme-niansi/commit/8709d9e9765048cf7962584a1cf98549459e4dda))
+- **theme:** add XSL stylesheet support for sitemap.xml ([2e29b40](https://github.com/niansi-z/vitepress-theme-niansi/commit/2e29b408e5b74ab7ff110c2cfb281a11a0891c02))
+- **theme:** exclude virtual pages (tags/categories/archives) from sitemap ([cea6f29](https://github.com/niansi-z/vitepress-theme-niansi/commit/cea6f29e7b6e551a8f3f84be965bb4a540baf634))
+
 # [1.0.0-alpha.3](https://github.com/niansi-z/vitepress-theme-niansi/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2026-04-16)
 
 ### Bug Fixes
