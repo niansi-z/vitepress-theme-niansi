@@ -178,6 +178,11 @@ function createPostUrl(relativeMarkdownPath: string): string {
       return '/' + normalizedUrlPath
     }
   }
+
+  if (nonRootKeys.length === 0) {
+    return '/' + normalizedUrlPath
+  }
+
   // root 语言目录下的内容，去掉前缀
   return '/' + normalizedUrlPath.replace(/^([\w-]+)\//, '')
 }
