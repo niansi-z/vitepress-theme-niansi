@@ -1,3 +1,10 @@
+# [1.0.0-alpha.5](https://github.com/niansi-z/vitepress-theme-niansi/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2026-04-18)
+
+### Bug Fixes
+
+- **docs:** correct example page links with proper relative paths ([6417fc8](https://github.com/niansi-z/vitepress-theme-niansi/commit/6417fc8c0ccbd8f8214e503dd5efad9b6af4e971))
+- **theme:** prevent incorrect path prefix stripping in non-i18n sites ([309d70c](https://github.com/niansi-z/vitepress-theme-niansi/commit/309d70ca48c6d22fd92c737b63d24f3112a40d46))
+
 # [1.0.0-alpha.4](https://github.com/niansi-z/vitepress-theme-niansi/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2026-04-18)
 
 ### Bug Fixes
