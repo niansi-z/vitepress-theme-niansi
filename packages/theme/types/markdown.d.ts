@@ -14,6 +14,7 @@ export interface MarkdownPluginOptions {
   sup?: boolean
   mark?: boolean
   spoiler?: boolean
+  preview?: boolean
 }
 
 declare module 'vitepress' {

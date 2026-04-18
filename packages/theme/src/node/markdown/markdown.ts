@@ -8,6 +8,7 @@ import { sub } from './plugins/sub'
 import { sup } from './plugins/sup'
 import { mark } from './plugins/mark'
 import { spoiler } from './plugins/spoiler'
+import { preview } from './plugins/preview'
 
 export async function applyMarkdownPlugins(
   md: MarkdownItAsync,
@@ -40,6 +41,10 @@ export async function applyMarkdownPlugins(
 
   if (plugins.spoiler) {
     spoiler(md)
+  }
+
+  if (plugins.preview) {
+    preview(md)
   }
 }
 
