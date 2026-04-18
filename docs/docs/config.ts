@@ -8,7 +8,8 @@ export default defineAdditionalConfig({
       { text: '首页', link: '/' },
       { text: '快速上手', link: '/get-started/' },
       { text: '指南', link: '/guide/' },
-      { text: '配置', link: '/config/' }
+      { text: '配置', link: '/config/' },
+      { text: '常见问题', link: '/faq' }
     ],
 
     sidebar: {
@@ -46,7 +47,8 @@ export default defineAdditionalConfig({
             { text: '代码块分组', link: '/guide/markdown/tabs' },
             { text: '提示容器', link: '/guide/markdown/containers' },
             { text: 'GFM 警告', link: '/guide/markdown/alert' },
-            { text: '导入文件', link: '/guide/markdown/include' }
+            { text: '导入文件', link: '/guide/markdown/include' },
+            { text: '预览', link: '/guide/markdown/preview' }
           ]
         },
         {

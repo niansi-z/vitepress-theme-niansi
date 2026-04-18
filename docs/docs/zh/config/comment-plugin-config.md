@@ -20,7 +20,7 @@ tags:
 
 ## Waline
 
-```ts
+```ts {5-10}
 import { defineConfig } from 'vitepress-theme-niansi'
 
 export default defineConfig({
@@ -37,7 +37,7 @@ export default defineConfig({
 
 ## Giscus
 
-```ts
+```ts {5-13}
 import { defineConfig } from 'vitepress-theme-niansi'
 
 export default defineConfig({
@@ -57,7 +57,7 @@ export default defineConfig({
 
 ## Twikoo
 
-```ts
+```ts {5-10}
 import { defineConfig } from 'vitepress-theme-niansi'
 
 export default defineConfig({

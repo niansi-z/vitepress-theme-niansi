@@ -20,6 +20,7 @@ export default defineConfig({
   },
   markdown: {
     math: true,
+    lineNumbers: true,
     plugins: {
       image: true,
       footnote: true,
@@ -27,7 +28,8 @@ export default defineConfig({
       sub: true,
       sup: true,
       mark: true,
-      spoiler: true
+      spoiler: true,
+      preview: true
     },
     config(md: any) {
       md.use(groupIconMdPlugin)

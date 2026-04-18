@@ -8,7 +8,8 @@ export default defineAdditionalConfig({
       { text: 'Home', link: '/en' },
       { text: 'Get Started', link: '/en/get-started/' },
       { text: 'Guide', link: '/en/guide/' },
-      { text: 'Config', link: '/en/config/' }
+      { text: 'Config', link: '/en/config/' },
+      { text: 'FAQ', link: '/en/faq' },
     ],
 
     sidebar: {
@@ -46,7 +47,8 @@ export default defineAdditionalConfig({
             { text: 'Code Tabs', link: '/en/guide/markdown/tabs' },
             { text: 'Hint container', link: '/en/guide/markdown/containers' },
             { text: 'GFM alert', link: '/en/guide/markdown/alert' },
-            { text: 'Include Files', link: '/en/guide/markdown/include' }
+            { text: 'Include Files', link: '/en/guide/markdown/include' },
+            { text: 'Preview', link: '/en/guide/markdown/preview' }
           ]
         },
         {
