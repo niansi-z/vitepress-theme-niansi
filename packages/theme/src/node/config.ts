@@ -8,6 +8,7 @@ import { applyMarkdownPlugins } from './markdown/markdown'
 import { virtualTagPagesPlugin } from './plugins/virtualTagPlugin'
 import { virtualCategoriesPlugin } from './plugins/virtualCategoriesPlugin'
 import { virtualArchivesPlugin } from './plugins/virtualArchivesPlugin'
+import { sitemapXsl } from './sitemap.xsl'
 
 export type AdditionalConfig<ThemeConfig = any> = LocaleSpecificConfig<ThemeConfig>
 
@@ -136,10 +137,39 @@ export function defineConfig<ThemeConfig = NiansiTheme.Config>(
     transformHtml(html: string) {
       return html.replace(/\s*<link[^>]*href="[^"]*vp-icons\.css"[^>]*>\s*/, '')
     },
-    buildEnd(siteConfig: { outDir: string }) {
+    async buildEnd(siteConfig: { outDir: string; userConfig: { sitemap?: { hostname?: string } } }) {
       const iconsFile = path.join(siteConfig.outDir, 'vp-icons.css')
       if (fs.existsSync(iconsFile)) {
         fs.unlinkSync(iconsFile)
+      }
+
+      // generate sitemap.xsl if sitemap is configured
+      if (siteConfig.userConfig?.sitemap?.hostname) {
+        const xslFile = path.join(siteConfig.outDir, 'sitemap.xsl')
+        fs.writeFileSync(xslFile, sitemapXsl)
+
+        // wait for sitemap.xml to be fully written (stream may not be flushed yet)
+        const sitemapFile = path.join(siteConfig.outDir, 'sitemap.xml')
+        await new Promise<void>((resolve) => {
+          const check = () => {
+            if (fs.existsSync(sitemapFile)) {
+              // give extra time for stream to flush
+              setTimeout(resolve, 100)
+            } else {
+              setTimeout(check, 50)
+            }
+          }
+          check()
+        })
+
+        if (fs.existsSync(sitemapFile)) {
+          let content = fs.readFileSync(sitemapFile, 'utf-8')
+          content = content.replace(
+            '<?xml version="1.0" encoding="UTF-8"?>',
+            '<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'
+          )
+          fs.writeFileSync(sitemapFile, content)
+        }
       }
     }
   }
