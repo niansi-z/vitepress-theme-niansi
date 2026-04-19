@@ -48,7 +48,8 @@ export default defineAdditionalConfig({
             { text: '提示容器', link: '/guide/markdown/containers' },
             { text: 'GFM 警告', link: '/guide/markdown/alert' },
             { text: '导入文件', link: '/guide/markdown/include' },
-            { text: '预览', link: '/guide/markdown/preview' }
+            { text: '预览', link: '/guide/markdown/preview' },
+            { text: '自定义对齐', link: '/guide/markdown/align' }
           ]
         },
         {

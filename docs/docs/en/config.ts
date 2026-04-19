@@ -48,7 +48,8 @@ export default defineAdditionalConfig({
             { text: 'Hint container', link: '/en/guide/markdown/containers' },
             { text: 'GFM alert', link: '/en/guide/markdown/alert' },
             { text: 'Include Files', link: '/en/guide/markdown/include' },
-            { text: 'Preview', link: '/en/guide/markdown/preview' }
+            { text: 'Preview', link: '/en/guide/markdown/preview' },
+            { text: 'Custom alignment', link: '/en/guide/markdown/align' }
           ]
         },
         {

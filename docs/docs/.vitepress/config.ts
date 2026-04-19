@@ -29,7 +29,8 @@ export default defineConfig({
       sup: true,
       mark: true,
       spoiler: true,
-      preview: true
+      preview: true,
+      align: true
     },
     config(md: any) {
       md.use(groupIconMdPlugin)
