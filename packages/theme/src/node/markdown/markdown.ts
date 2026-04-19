@@ -9,6 +9,7 @@ import { sup } from './plugins/sup'
 import { mark } from './plugins/mark'
 import { spoiler } from './plugins/spoiler'
 import { preview } from './plugins/preview'
+import {align} from "./plugins/align";
 
 export async function applyMarkdownPlugins(
   md: MarkdownItAsync,
@@ -45,6 +46,10 @@ export async function applyMarkdownPlugins(
 
   if (plugins.preview) {
     preview(md)
+  }
+
+  if (plugins.align) {
+    align(md)
   }
 }
 
