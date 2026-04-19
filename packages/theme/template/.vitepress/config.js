@@ -5,6 +5,19 @@ export default defineConfig({<% if (srcDir) { %>
   <% } %>
   title: <%= title %>,
   description: <%= description %><% if (defaultTheme) { %>,
+  markdown: {
+    plugins: {
+      image: true,
+        footnote: true,
+        tasklist: true,
+        sub: true,
+        sup: true,
+        mark: true,
+        spoiler: true,
+        preview: true,
+        align: true
+    }
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
