@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
+import { useScrollLock } from '@vueuse/core'
 import NSSidebarTitle from './NSSidebarTitle.vue'
 import NSSidebarMenu from './NSSidebarMenu.vue'
 import NSSidebarDocs from './NSSidebarDocs.vue'
@@ -11,6 +12,11 @@ import { useLayout } from '../composables/layout'
 const { theme } = useData()
 const { isSidebarOpen, closeSidebar } = useSidebar()
 const { isHome } = useLayout()
+const isLocked = useScrollLock(document.body)
+
+watch(isSidebarOpen, (open) => {
+  isLocked.value = open
+})
 
 const sidebarStyle = computed(() => {
   const image = theme.value.sidebarBgImage
