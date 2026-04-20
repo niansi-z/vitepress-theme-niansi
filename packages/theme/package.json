@@ -103,8 +103,8 @@
     "@vue/shared": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
     "@vueuse/integrations": "catalog:frontend",
-    "cheerio": "catalog:script",
-    "domhandler": "catalog:script",
+    "cheerio": "catalog:frontend",
+    "domhandler": "catalog:frontend",
     "focus-trap": "catalog:frontend",
     "gray-matter": "catalog:frontend",
     "mark.js": "catalog:frontend",
@@ -112,10 +112,10 @@
     "marked": "catalog:frontend",
     "minisearch": "catalog:frontend",
     "vite": "catalog:build",
-    "vitepress": "catalog:build",
     "vue": "catalog:frontend"
   },
   "peerDependencies": {
+    "vitepress": "catalog:build",
     "@docsearch/css": "^4",
     "@docsearch/js": "^4",
     "@docsearch/sidepanel-js": "^4",
