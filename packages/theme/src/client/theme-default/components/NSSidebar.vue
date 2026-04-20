@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
-import { computed, watch } from 'vue'
+import { computed, watch, onBeforeUnmount } from 'vue'
 import { useScrollLock } from '@vueuse/core'
+import { inBrowser } from 'vitepress'
 import NSSidebarTitle from './NSSidebarTitle.vue'
 import NSSidebarMenu from './NSSidebarMenu.vue'
 import NSSidebarDocs from './NSSidebarDocs.vue'
@@ -12,10 +13,15 @@ import { useLayout } from '../composables/layout'
 const { theme } = useData()
 const { isSidebarOpen, closeSidebar } = useSidebar()
 const { isHome } = useLayout()
-const isLocked = useScrollLock(document.body)
+
+const isLocked = useScrollLock(inBrowser ? document.body : null)
 
 watch(isSidebarOpen, (open) => {
   isLocked.value = open
+})
+
+onBeforeUnmount(() => {
+  isLocked.value = false
 })
 
 const sidebarStyle = computed(() => {
