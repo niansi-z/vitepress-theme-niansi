@@ -46,7 +46,7 @@ export default defineConfig({
     'zh/:rest*': ':rest*'
   },
   locales: {
-    root: { label: '简体中文', lang: 'zh-Hans' },
+    root: { label: '简体中文', lang: 'zh-CN' },
     en: { label: 'English', lang: 'en-US' }
   },
   themeConfig: {
