@@ -10,6 +10,7 @@ export default defineAdditionalConfig({
       { text: 'Guide', link: '/en/guide/' },
       { text: 'Config', link: '/en/config/' },
       { text: 'FAQ', link: '/en/faq' },
+      { text: 'Acknowledgements', link: '/en/acknowledgements/' }
     ],
 
     sidebar: {

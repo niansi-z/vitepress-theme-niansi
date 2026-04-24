@@ -9,7 +9,8 @@ export default defineAdditionalConfig({
       { text: '快速上手', link: '/get-started/' },
       { text: '指南', link: '/guide/' },
       { text: '配置', link: '/config/' },
-      { text: '常见问题', link: '/faq' }
+      { text: '常见问题', link: '/faq' },
+      { text: '鸣谢', link: '/acknowledgements' }
     ],
 
     sidebar: {
