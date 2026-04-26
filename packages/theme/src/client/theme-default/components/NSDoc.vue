@@ -10,6 +10,7 @@ import { useLayout } from '../composables/layout'
 import NSTail from './NSTail.vue'
 import NSPostNavigation from './NSPostNavigation.vue'
 import NSComment from './NSComment.vue'
+import NSChangelog from './NSChangelog.vue'
 
 const { getPostByUrl } = usePosts()
 const route = useRoute()
@@ -46,7 +47,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="NSDoc" role="article" :aria-labelledby="'doc-title'">
+  <div class="NSDoc ns-doc" role="article" :aria-labelledby="'doc-title'">
     <slot name="doc-top" />
     <header class="doc-header">
       <slot name="doc-header-top" />
@@ -72,8 +73,13 @@ onUnmounted(() => {
     </header>
     <NSTocBar v-if="headers.length" />
     <slot name="doc-content-top" />
-    <Content class="ns-doc" :class="[pageName, theme.externalLinkIcon && 'external-link-icon-enabled']" />
+    <Content :class="[pageName, theme.externalLinkIcon && 'external-link-icon-enabled']" />
     <slot name="doc-content-bottom" />
+
+    <template v-if="(post as any).commit?.length">
+      <h2 class="ns-doc-changelog" tabindex="-1">{{theme.changelog?.title ?? 'Changelog'}}</h2>
+      <NSChangelog :commits="(post as any).commit ?? []" />
+    </template>
 
     <NSTail :post>
       <template #doc-tail-top><slot name="doc-tail-top" /></template>

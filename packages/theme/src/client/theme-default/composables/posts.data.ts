@@ -7,7 +7,7 @@ import matter from 'gray-matter'
 import {
   countMarkdownWords,
   estimateReadingTime,
-  extractMarkdownExcerpt,
+  extractMarkdownExcerpt, getGitFileCommitHistory,
   getGitFileCreationTime,
   getGitFileLastModifiedTime,
   normalizeToUnixPath,
@@ -243,6 +243,8 @@ export default defineLoader({
         ? toTimestamp(frontmatter.lastUpdated, lastUpdatedAtByGit || fileLastModifiedAt)
         : 0
 
+      const gitChangelog = getGitFileCommitHistory(markdownFilePath)
+
       const relativeMarkdownPath = normalizePath(path.relative(config.srcDir, markdownFilePath))
       const fallbackTitle = inferTitleFromPath(relativeMarkdownPath)
       const resolvedTitle = String(frontmatter.title || extractFirstH1Title(markdownBody) || fallbackTitle).trim()
@@ -272,7 +274,8 @@ export default defineLoader({
         readTime,
         excerpt: resolvedExcerpt,
         url,
-        filePath: normalizeToUnixPath(relativeMarkdownPath)
+        filePath: normalizeToUnixPath(relativeMarkdownPath),
+        commit: gitChangelog
       }
 
       postCache.set(markdownFilePath, {

@@ -20,9 +20,16 @@ export namespace NiansiTheme {
     readMeta?: string
     categoriesMeta?: string
 
+    changelog?: Changelog
+
     excerptLength?: number
 
     commentPlugin?: CommentPlugin
+  }
+
+  export type Changelog = {
+    title?: string
+    desc?: string
   }
 
   export type ThemeableImage = DefaultTheme.ThemeableImage
