@@ -14,7 +14,7 @@ html:not(.dark) .shiki span {
   position: relative;
   display: flex;
   padding: 0 0.75rem;
-  /*margin: 0;*/
+  margin: 0;
   border-radius: 10px 10px 0 0;
   background-color: var(--ns-language-bg);
   overflow-x: auto;
