@@ -89,6 +89,10 @@ export default defineAdditionalConfig({
     docFooter: {
       next: 'Next page',
       prev: 'Previous page'
+    },
+    changelog: {
+      title: 'Changelog',
+      desc: 'View All Changelog',
     }
   }
 })
