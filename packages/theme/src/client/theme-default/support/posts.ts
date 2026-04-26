@@ -106,6 +106,36 @@ export function getGitFileLastModifiedTime(filePath: string): number | undefined
 }
 
 /**
+ * 获取文件在 Git 历史中的所有提交记录。
+ *
+ * @param filePath - 文件绝对路径
+ * @returns 提交记录数组（按时间倒序），每条记录包含 shortHash、subject、dateIso
+ */
+export function getGitFileCommitHistory(filePath: string) {
+  try {
+    const format = '%h|%s|%ai'
+    const result = spawnSync('git', ['log', '--pretty=' + format, '--', filePath])
+    const infoStr = result.stdout?.toString().trim()
+
+    if (!infoStr) {
+      return []
+    }
+
+    return infoStr.split('\n').filter(Boolean).map((line) => {
+      const [shortHash, subject, dateIso] = line.split('|')
+      return {
+        shortHash,
+        subject,
+        dateIso,
+      }
+    })
+  } catch (e) {
+    console.error('[getGitFileCommitHistory] error:', e)
+    return []
+  }
+}
+
+/**
  * 统计 Markdown 内容字数（字符数）。
  *
  * @param markdownText Markdown 原文

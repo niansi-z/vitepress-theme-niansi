@@ -456,3 +456,11 @@
 .dark {
   --ns-back-to-top-shadow: #0000004d;
 }
+
+/**
+ * Component: Changelog
+ * -------------------------------------------------------------------------- */
+:root {
+  --ns-changelog-bg: var(--ns-language-bg);
+  --ns-changelog-hash-bg: var(--ns-line-code-bg)
+}

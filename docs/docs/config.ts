@@ -89,6 +89,10 @@ export default defineAdditionalConfig({
     docFooter: {
       next: '下一篇',
       prev: '上一篇'
+    },
+    changelog: {
+      title: '更新日志',
+      desc: '查看所有更新日志'
     }
   }
 })
